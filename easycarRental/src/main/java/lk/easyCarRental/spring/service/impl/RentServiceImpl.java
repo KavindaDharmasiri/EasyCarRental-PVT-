@@ -1,10 +1,7 @@
 package lk.easyCarRental.spring.service.impl;
 
-import lk.easyCarRental.spring.dto.PaymentDTO;
 import lk.easyCarRental.spring.dto.RentDTO;
-import lk.easyCarRental.spring.entity.Payment;
 import lk.easyCarRental.spring.entity.Rent;
-import lk.easyCarRental.spring.repo.PaymentRepo;
 import lk.easyCarRental.spring.repo.RentRepo;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -23,7 +20,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class RentServiceImpl implements lk.easyCarRental.spring.service.RentService{
+public class RentServiceImpl implements lk.easyCarRental.spring.service.RentService {
 
     @Autowired
     private RentRepo repo;

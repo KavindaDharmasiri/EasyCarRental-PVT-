@@ -31,7 +31,7 @@ public class DriverServiceImpl implements lk.easyCarRental.spring.service.Driver
     @Override
     public void saveDriver(DriverDTO dto) {
         if (!repo.existsById(dto.getId())) {
-             repo.save(mapper.map(dto, Driver.class));
+            repo.save(mapper.map(dto, Driver.class));
         } else {
             throw new RuntimeException("Customer Already Exist..!");
         }

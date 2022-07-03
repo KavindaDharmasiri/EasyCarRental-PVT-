@@ -1,10 +1,7 @@
 package lk.easyCarRental.spring.service.impl;
 
-import lk.easyCarRental.spring.dto.DriverDTO;
 import lk.easyCarRental.spring.dto.PaymentDTO;
-import lk.easyCarRental.spring.entity.Driver;
 import lk.easyCarRental.spring.entity.Payment;
-import lk.easyCarRental.spring.repo.DriverRepo;
 import lk.easyCarRental.spring.repo.PaymentRepo;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
