@@ -1,8 +1,8 @@
 package lk.easyCarRental.spring.service.impl;
 
-import lk.easyCarRental.spring.dto.CarDTO;
-import lk.easyCarRental.spring.entity.Car;
-import lk.easyCarRental.spring.repo.CarRepo;
+import lk.easyCarRental.spring.dto.CarImageDTO;
+import lk.easyCarRental.spring.entity.CarImage;
+import lk.easyCarRental.spring.repo.CarImageRepo;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,31 +14,31 @@ import java.util.List;
 /**
  * @Created_By_: Kavinda Gimhan
  * @Date_: 7/6/2022
- * @Time_: 8:38 PM
+ * @Time_: 8:53 PM
  * @Project_Name : easycarRental
  **/
 
 @Service
 @Transactional
-public class CarServiceImpl implements lk.easyCarRental.spring.service.CarService {
+public class CarImageServiceImpl implements lk.easyCarRental.spring.service.CarImageService {
 
     @Autowired
-    private CarRepo repo;
+    private CarImageRepo repo;
 
     @Autowired
     private ModelMapper mapper;
 
     @Override
-    public void saveCar(CarDTO dto) {
-        if (!repo.existsById(dto.getRegistrationNo())) {
-            repo.save(mapper.map(dto, Car.class));
+    public void saveCarImage(CarImageDTO dto) {
+        if (!repo.existsById(dto.getRegistrationNumber())) {
+            repo.save(mapper.map(dto, CarImage.class));
         } else {
             throw new RuntimeException("Car Already Exist..!");
         }
     }
 
     @Override
-    public void deleteCar(String id) {
+    public void deleteCarImage(String id) {
         if (repo.existsById(id)) {
             repo.deleteById(id);
         } else {
@@ -47,26 +47,26 @@ public class CarServiceImpl implements lk.easyCarRental.spring.service.CarServic
     }
 
     @Override
-    public void updateCar(CarDTO dto) {
-        if (repo.existsById(dto.getRegistrationNo())) {
-            repo.save(mapper.map(dto, Car.class));
+    public void updateCarImage(CarImageDTO dto) {
+        if (repo.existsById(dto.getRegistrationNumber())) {
+            repo.save(mapper.map(dto, CarImage.class));
         } else {
             throw new RuntimeException("No Such Car To Update..! Please Check the Registration number..!");
         }
     }
 
     @Override
-    public CarDTO searchCar(String id) {
+    public CarImageDTO searchCarImage(String id) {
         if (repo.existsById(id)) {
-            return mapper.map(repo.findById(id).get(), CarDTO.class);
+            return mapper.map(repo.findById(id).get(), CarImageDTO.class);
         } else {
             throw new RuntimeException("No Car For " + id + " ..!");
         }
     }
 
     @Override
-    public List<CarDTO> getAllCars() {
-        return mapper.map(repo.findAll(), new TypeToken<List<CarDTO>>() {
+    public List<CarImageDTO> getAllCarImages() {
+        return mapper.map(repo.findAll(), new TypeToken<List<CarImageDTO>>() {
         }.getType());
     }
 }
