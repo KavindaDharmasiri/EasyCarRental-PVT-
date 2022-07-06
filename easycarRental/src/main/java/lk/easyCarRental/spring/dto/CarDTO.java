@@ -1,31 +1,22 @@
-package lk.easyCarRental.spring.entity;
+package lk.easyCarRental.spring.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import sun.plugin.javascript.navig.Image;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.swing.*;
-import java.awt.*;
 
 /**
  * @Created_By_: Kavinda Gimhan
- * @Date_: 7/1/2022
- * @Time_: 7:34 PM
+ * @Date_: 7/6/2022
+ * @Time_: 8:33 PM
  * @Project_Name : easycarRental
  **/
 
-
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-@Entity
 @ToString
-public class Car {
-    @Id
+public class CarDTO {
     private String registrationNo;
     private String colour;
     private String type;
@@ -34,5 +25,4 @@ public class Car {
     private int noOfPassenger;
     private double priceForRent;
     private String fuel;
-
 }
