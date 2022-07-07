@@ -19,5 +19,5 @@ import lombok.ToString;
 public class CarImageDTO {
 
     private String registrationNumber;
-    //private Image img;
+    private String imgUrl;
 }

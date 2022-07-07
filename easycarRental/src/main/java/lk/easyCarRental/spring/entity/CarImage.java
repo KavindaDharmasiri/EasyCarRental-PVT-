@@ -23,5 +23,6 @@ import javax.persistence.Id;
 public class CarImage {
     @Id
     private String registrationNumber;
-    //private Image img;
+    @Id
+    private String imgUrl;
 }
