@@ -25,4 +25,5 @@ public class CarDTO {
     private int noOfPassenger;
     private double priceForRent;
     private String fuel;
+    private byte[] image;
 }
