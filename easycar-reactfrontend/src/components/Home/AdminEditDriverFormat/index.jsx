@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, Form, Input, Row } from 'antd';
+import {Col, Form, Input, message, Row} from 'antd';
 import PostService from "../../../services/PostService";
 import EditService from "../../../services/EditService";
 import GetService from "../../../services/GetService";
@@ -83,12 +83,20 @@ class DefaultDriverEdit extends Component {
                     message: 'Post created succesfully!',
                     severity: 'success'
                 })
+
+                setTimeout(()=>{
+                    message.success('Driver Update Success!!')
+                },2000);
             } else {
                 this.setState({
                     alert: true,
                     message: 'Post created Unsuccesfully!',
                     severity: 'error'
                 })
+
+                setTimeout(()=>{
+                    message.error('Driver Update Unsuccessful!!')
+                },2000);
             }
         }
 

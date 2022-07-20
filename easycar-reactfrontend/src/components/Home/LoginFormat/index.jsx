@@ -3,7 +3,7 @@ import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import car_img from "../../../assets/img/car.jpg";
 
-import {Col, Form, Input, Row} from 'antd'
+import {Col, Form, Input, message, Row} from 'antd'
 import GetService from "../../../services/GetService";
 import {
     BrowserRouter as Router,
@@ -20,9 +20,19 @@ let typ;
 
 function load() {
     if(typ === "Admin"){
+        setTimeout(()=>{
+            message.success('Admin Login Success!!')
+        },2000);
+
         const newWindow = window.open('http://localhost:3000/adminHome?id=' + iddd, '_self', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }else {
+
+        setTimeout(()=>{
+            message.success('User Login Success!!')
+        },2000);
+
+
         const newWindow = window.open('http://localhost:3000/firstPage?id=' + iddd, '_self', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }
@@ -47,8 +57,7 @@ class DefaultLogin extends Component {
                  if (res.data.data[i].password === pass) {
                     iddd= res.data.data[i].id
                      typ = res.data.data[i].type
-                    console.log(iddd)
-                    console.log('password')
+
 
                      load()
                 }

@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, Form, Input, Row } from 'antd';
+import {Col, Form, Input, message, Row} from 'antd';
 import PostService from "../../../services/PostService";
 
 class DefaultCarAdd extends Component {
@@ -35,19 +35,6 @@ class DefaultCarAdd extends Component {
 
         const onFinish = async values =>  {
 
-            let registrationNo = this.state.formData.registrationNo
-            let brand = this.state.formData.brand
-            let colour = this.state.formData.colour
-            let fuel = this.state.formData.fuel
-            let noOfPassenger = this.state.formData.noOfPassenger
-            let priceForRent = this.state.formData.priceForRent
-            let transmission = this.state.formData.transmission
-            let type = this.state.formData.type
-            let image1 = "image1"
-            let image2 = "image2"
-            let image3 = "image3"
-            let image4 = "image4"
-
             console.log('save button clicked!!')
             /*console.log(values)*/
 
@@ -58,12 +45,21 @@ class DefaultCarAdd extends Component {
                     message: 'Post created succesfully!',
                     severity: 'success'
                 })
+
+                setTimeout(()=>{
+                    message.success('Car Adding Success!!')
+                },2000);
+
             } else {
                 this.setState({
                     alert: true,
                     message: 'Post created Unsuccesfully!',
                     severity: 'error'
                 })
+
+                setTimeout(()=>{
+                    message.error('Car Adding Unsuccessful!!')
+                },2000);
             }
         };
 

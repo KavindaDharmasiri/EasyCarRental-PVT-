@@ -2,45 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f6f66a3-3ffb-4035-abdf-8bbfb445eced" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/GetService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDashBoardFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDashBoardFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminReservationAndBookinFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminReservationAndBookinFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminReservationAndBookinFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminReservationAndBookinFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/CheckFinalResultFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/CheckFinalResultFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/HomeFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/HomeFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/HomeFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/HomeFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/LoginFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LoginFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/LoginFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LoginFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/RegisterFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RegisterFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/RegisterFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RegisterFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/RentAndBookingDetail/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RentAndBookingDetail/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/RentAndBookingDetail/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RentAndBookingDetail/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PostService.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../easycarRental/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/CarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/DriverController.java" afterDir="false" />
@@ -169,7 +136,7 @@
       <workItem from="1658221960792" duration="12510000" />
       <workItem from="1658283615944" duration="11368000" />
       <workItem from="1658295521019" duration="27656000" />
-      <workItem from="1658330557635" duration="281000" />
+      <workItem from="1658330557635" duration="1088000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, Form, Input, Row} from 'antd';
+import {Col, Form, Input, message, Row} from 'antd';
 import PostService from "../../../services/PostService";
 
 
@@ -54,12 +54,20 @@ class DefaultDriverAdd extends Component {
                     message: 'Post created succesfully!',
                     severity: 'success'
                 })
+
+                setTimeout(()=>{
+                    message.success('Adding Driver Success!!')
+                },2000);
             } else {
                 this.setState({
                     alert: true,
                     message: 'Post created Unsuccesfully!',
                     severity: 'error'
                 })
+
+                setTimeout(()=>{
+                    message.error('Adding Car Unsuccessful!!')
+                },2000);
             }
         }
 
