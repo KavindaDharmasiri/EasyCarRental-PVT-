@@ -1,38 +1,69 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {DataGrid, GridColDef} from "@mui/x-data-grid";
 import {Divider} from "antd";
+import GetService from "../../../services/GetService";
 
 
 class DefaultAdminRentAndBooking extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            data1: [],
+            data2: []
+        }
     }
+
+
+    async loadData() {
+        let res = await GetService.fetchAllReservation();
+        console.log("row response: " + JSON.stringify(res.data.data[0].name))
+
+        this.setState({
+            data1: res.data.data
+        })
+
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
+    }
+
+    async loadrentData() {
+        let res = await GetService.fetchAllRent();
+        console.log("row response: " + JSON.stringify(res.data.data[0].name))
+
+        this.setState({
+            data2: res.data.data
+        })
+
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
+    }
+
+    async componentDidMount() {
+
+        this.loadData()
+        this.loadrentData()
+
+
+    }
+
 
     render() {
         const {classes} = this.props;
 
-        const bookColumns: GridColDef[] = [
-            {field: 'bOrR', headerName: 'Reservation/Booking', width: 130},
-            {field: 'id', headerName: 'UserID', width: 130},
-            {field: 'pId', headerName: 'PaymentID', width: 130},
-            {field: 'vNo', headerName: 'VehicleRegisterNo', width: 130,},
-            {field: 'bDate', headerName: 'Borrow Date', width: 130},
-            {field: 'eDate', headerName: 'End Date', width: 130},
-            {field: 'type', headerName: 'Type', width: 130,},
-            {field: 'ttl', headerName: 'Total', type: 'number', width: 130,},
-            {field: 'suc', headerName: 'Success', width: 130,},
-
-        ];
-
-        const bookRows = [
-            {bOrR: 'b', id: 1, pId: 'Snow', vNo: 'Jon', bDate: '1', eDate: 'Snow', type: 'Jon', ttl: 35, suc: 'yes'},
-            {bOrR: 'b', id: 2, pId: 'Snow', vNo: 'Jon', bDate: '1', eDate: 'Snow', type: 'Jon', ttl: 35, suc: 'yes'},
-            {bOrR: 'R', id: 3, pId: 'Snow', vNo: 'Jon', bDate: '1', eDate: 'Snow', type: 'Jon', ttl: 35, suc: 'yes'},
-            {bOrR: 'b', id: 4, pId: 'Snow', vNo: 'Jon', bDate: '1', eDate: 'Snow', type: 'Jon', ttl: 35, suc: 'yes'},
-            {bOrR: 'b', id: 5, pId: 'Snow', vNo: 'Jon', bDate: '1', eDate: 'Snow', type: 'Jon', ttl: 35, suc: 'yes'},
-        ];
+        const reservations = this.state.data1
+        const rents = this.state.data2
 
 
         return (
@@ -51,14 +82,68 @@ class DefaultAdminRentAndBooking extends Component {
 
                 <Divider type={'horizontal'} dashed style={style.divider}>Booking Details</Divider>
 
-                <div style={{height: 400, width: '100%'}}>
-                    <DataGrid
-                        rows={bookRows}
-                        columns={bookColumns}
-                        pageSize={5}
-                        rowsPerPageOptions={[5]}
-                        checkboxSelection
-                    />
+                <div style={style.appcontainer}>
+                    <table style={style.table}>
+                        <thead>
+                        <tr>
+                            <th style={style.th}>DriverId</th>
+                            <th style={style.th}>PaymentId</th>
+                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Type</th>
+                            <th style={style.th}>VehicleRegistrationNo</th>
+                            <th style={style.th}>Total</th>
+
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        {reservations.map((reservation) =>
+                            <tr>
+                                <td style={style.td}>{reservation.driverId}</td>
+                                <td style={style.td}>{reservation.paymentId}</td>
+                                <td style={style.td}>{reservation.releventDate}</td>
+                                <td style={style.td}>{reservation.type}</td>
+                                <td style={style.td}>{reservation.vehicleRegistrationNo}</td>
+                                <td style={style.td}>{reservation.total}</td>
+                            </tr>
+                        )}
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br/><br/><br/><br/><br/>
+
+                <Divider type={'horizontal'} dashed style={style.divider}>Rent Details</Divider>
+
+                <div style={style.appcontainer}>
+                    <table style={style.table}>
+                        <thead>
+                        <tr>
+                            <th style={style.th}>UserId</th>
+                            <th style={style.th}>PaymentId</th>
+                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Type</th>
+                            <th style={style.th}>VehicleRegistrationNo</th>
+                            <th style={style.th}>Total</th>
+
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        {rents.map((rent) =>
+                            <tr>
+                                <td style={style.td}>{rent.userId}</td>
+                                <td style={style.td}>{rent.paymentId}</td>
+                                <td style={style.td}>{rent.releventDate}</td>
+                                <td style={style.td}>{rent.type}</td>
+                                <td style={style.td}>{rent.vehicleRegistrationNo}</td>
+                                <td style={style.td}>{rent.total}</td>
+                            </tr>
+                        )}
+
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

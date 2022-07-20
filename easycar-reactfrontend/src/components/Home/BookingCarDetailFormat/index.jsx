@@ -5,16 +5,68 @@ import {Col, DatePicker, Divider, Form, Row} from 'antd';
 import car_img from "../../../assets/img/car.jpg";
 import {Link} from "react-router-dom";
 import PaymentModel from "../../common/PaymentModel";
+import GetService from "../../../services/GetService";
 
 const RangePicker = DatePicker
+let regNo;
+
+let id;
 
 class DefaultBookingDetail extends Component {
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            data:[],
+            alert: false,
+            message: '',
+            severity: '',
+            id:''
+        }
+    }
+
+    componentDidMount() {
+        let link = window.location.href
+
+        regNo = String(link.slice(39,43));
+
+        id = String(link.slice(50));
+        console.log(id)
+        console.log(regNo)
+        this.initializee(regNo)
+
+    }
+
+    async initializee(regNo) {
+        let res = await GetService.fetchAllCar();
+
+        for (let i=0 ;i<res.data.data.length;i++){
+            if (res.data.data[i].registrationNo=== regNo){
+
+                console.log(res.data.data[i])
+                this.setState({
+
+                    data: res.data.data[i]
+                })
+
+
+            }
+        }
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
     }
 
     render() {
         const {classes} = this.props;
+
+        const cars = this.state.data
+
         return (
 
             <div style={style.body}>
@@ -24,6 +76,7 @@ class DefaultBookingDetail extends Component {
 
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
 
+                            <h3>{id}</h3>
 
                         </div>
                     </div>
@@ -55,15 +108,14 @@ class DefaultBookingDetail extends Component {
                                 <Divider type={'horizontal'} dashed style={style.divider}>Car Information</Divider>
                                 <Form layout={"horizontal"} style={style.loginForm}>
 
-                                    <label>Vehicle register no : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>Brand : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>Color : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>Fuel : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>No of Passengers : <label style={style.secondLbl}>res /-</label></label><br/>
-                                    <label>Price for rent : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>Transmission : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>Type : <label style={style.secondLbl}>res /-</label></label><br/>
-                                    <label>Availability : <label style={style.secondLbl}>res /-</label></label><br/>
+                                    <label>Vehicle register no : <label style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
+                                    <label>Brand : <label style={style.secondLbl}>{cars.brand}</label></label><br/>
+                                    <label>Color : <label style={style.secondLbl}>{cars.colour}</label></label><br/>
+                                    <label>Fuel : <label style={style.secondLbl}>{cars.fuel}</label></label><br/>
+                                    <label>No of Passengers : <label style={style.secondLbl}>{cars.noOfPassenger}</label></label><br/>
+                                    <label>Price for rent : <label style={style.secondLbl}>{cars.priceForRent}/-</label></label><br/>
+                                    <label>Transmission : <label style={style.secondLbl}>{cars.transmission}</label></label><br/>
+                                    <label>Type : <label style={style.secondLbl}>{cars.type}</label></label><br/>
 
 
                                 </Form>
@@ -71,11 +123,11 @@ class DefaultBookingDetail extends Component {
                                 <Divider type={'horizontal'} dashed style={style.divider}>Booking Information</Divider>
                                 <Form layout={"horizontal"} style={style.loginForm}>
 
-                                    <label>userId : <label style={style.secondLbl}>res</label></label><br/>
+                                    <label>userId : <label style={style.secondLbl}>{id}</label></label><br/>
                                     <label>paymentId : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>type : <label style={style.secondLbl}>res</label></label><br/>
+                                    <label>type : <label style={style.secondLbl}>Booking</label></label><br/>
                                     <label>vehicle register number : <label
-                                        style={style.secondLbl}>res</label></label><br/>
+                                        style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
 
                                     <label>borrow date</label><br/>
                                     <RangePicker showTime={{format: 'HH:MM'}} format='MMM DD YYYY HH:MM'/><br/>

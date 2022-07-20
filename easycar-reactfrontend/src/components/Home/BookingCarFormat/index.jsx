@@ -6,14 +6,65 @@ import book_logo from "../../../assets/img/book.jpg";
 import resp_logo from "../../../assets/img/rent.jpg";
 import restReservation_logo from "../../../assets/img/rent&reservation.jpeg";
 import {Link} from "react-router-dom";
+import {BookTwoTone} from "@ant-design/icons";
+import GetService from "../../../services/GetService";
+
+let regNo;
 
 class DefaultBooking extends Component {
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            data: [],
+                id: ''
+            }
+        }
+
+        componentDidMount() {
+            let link = window.location.href
+
+            regNo = String(link.slice(36));
+
+            this.setState({
+                id: regNo
+            })
+            console.log('regno')
+            console.log(regNo)
+
+            this.loadData()
+        }
+
+
+
+    async loadData() {
+        let res = await GetService.fetchAllCar();
+        console.log("row response: " + JSON.stringify(res.data.data[0].brand))
+
+        this.setState({
+            data: res.data.data
+        })
+
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
     }
+
 
     render() {
         const {classes} = this.props;
+
+        const cars = this.state.data
+
+        let re = this.state.id
+        console.log('idre')
+        console.log(re)
+
         return (
 
             <div style={style.body}>
@@ -22,7 +73,7 @@ class DefaultBooking extends Component {
                         <div className="d-flex justify-content-between">
 
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
+<h3>{re}</h3>
 
                         </div>
                     </div>
@@ -30,244 +81,30 @@ class DefaultBooking extends Component {
 
 
                 <div>
-                    <Row justify={"center"} >
-                        <Col style={style.col}>
+                    <div style={style.appcontainer}>
+                        <table  style={style.table}>
+                            <thead>
+                            <tr>
+                                <th  style={style.th}>photo</th>
+                                <th style={style.th}>brand</th>
+                                <th style={style.th}>type</th>
+                                <th  style={style.th}>Book Now</th>
+                            </tr>
 
-                            <div style={style.marginImg}>
-                            <div style={style.bs1}>
-                                <div className={"car p-2"} style={style.car} onMouseMove={style.carHover}>
+                            </thead>
+                            <tbody>
+                            {cars.map((car) =>
+                                <tr>
+                                    <td style={style.td}>{car.image1}</td>
+                                    <td style={style.td}>{car.brand}</td>
+                                    <td style={style.td}>{car.type}</td>
+                                    <td style={style.td}><Link  to={'/bookingCarDet?id='+car.registrationNo+'&idtwo='+re}><BookTwoTone style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                </tr>
+                            )}
 
-                                    <img src={book_logo} style={style.dashboardImg} alt=""/>
-                                    <div style={style.imgContent}>
-                                        <div>
-                                            <p style={style.paragraph}>Book Car</p>
-                                            <p style={style.paragraph}>Click For Book</p>
-                                        </div>
-                                        <div style={style.rightAlign} >
-                                            <button style={style.btn1}><Link to={'/bookingCarDet'}>Book Now</Link></button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={resp_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Get Car With Driver</p>
-                                                <p style={style.paragraph}>Click For Get</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Book Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col style={style.col}>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car} onMouseMove={style.carHover}>
-
-                                        <img src={book_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Book Car</p>
-                                                <p style={style.paragraph}>Click For Book</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Book Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={resp_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Get Car With Driver</p>
-                                                <p style={style.paragraph}>Click For Get</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Book Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col style={style.col}>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car} onMouseMove={style.carHover}>
-
-                                        <img src={book_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Book Car</p>
-                                                <p style={style.paragraph}>Click For Book</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Book Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={resp_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Get Car With Driver</p>
-                                                <p style={style.paragraph}>Click For Get</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Book Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car}>
-
-                                        <img src={restReservation_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Your Reservations / Booking</p>
-                                                <p style={style.paragraph}>Click For Watch</p>
-                                            </div>
-                                            <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
 

@@ -20,8 +20,19 @@ export const style = {
     },
 
     body: {
-        backgroundColor: "azure"
+        backgroundColor: "#FFFFFF"
     },
+
+
+    btn1:{
+        boxShadow: "none",
+        backgroundColor: "white",
+        color: "#00008B",
+        border: "1px solid #00008B",
+        fontFamily: "'Montserrat', sans-serif",
+        marginRight: "20px"
+    },
+
 
     dashboardImg: {
         height: "180px",
@@ -40,13 +51,6 @@ export const style = {
         fontFamily: "'Montserrat', sans-serif"
     },
 
-    btn1:{
-        boxShadow: "none",
-        backgroundColor: "white",
-        color: "#00008B",
-        border: "1px solid #00008B",
-        fontFamily: "'Montserrat', sans-serif"
-    },
 
     rightAlign:{
         textAlign: "right"

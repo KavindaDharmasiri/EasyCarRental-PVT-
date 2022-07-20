@@ -1,18 +1,54 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, Row} from 'antd';
-import book_logo from "../../../assets/img/book.jpg";
+import GetService from "../../../services/GetService";
+import {GridColDef} from "@mui/x-data-grid";
+import {EditOutlined , DeleteOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+
 
 class DefaultCarManage extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            data: []
+        }
+
+    }
+
+
+
+    async loadData() {
+        let res = await GetService.fetchAllCar();
+        console.log("row response: " + JSON.stringify(res.data.data[0].brand))
+
+        this.setState({
+            data: res.data.data
+        })
+
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
+    }
+
+    async componentDidMount() {
+
+        this.loadData()
+
+
     }
 
     render() {
         const {classes} = this.props;
+
+        const cars = this.state.data
+
+
         return (
 
             <div style={style.body}>
@@ -22,60 +58,56 @@ class DefaultCarManage extends Component {
 
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
 
+                            <button style={style.btn1}><Link to={'/carAdd'}>Add New Car</Link></button>
 
                         </div>
                     </div>
                 </div>
 
+                <div style={style.appcontainer}>
+                    <table  style={style.table}>
+                        <thead>
+                        <tr>
+                            <th  style={style.th}>Edit</th>
+                            <th  style={style.th}>registrationNo</th>
+                            <th style={style.th}>brand</th>
+                            <th style={style.th}>type</th>
+                            <th  style={style.th}>transmission</th>
+                            <th  style={style.th}>colour</th>
+                            <th  style={style.th}>noOfPassenger</th>
+                            <th  style={style.th}>fuel</th>
+                            <th  style={style.th}>image1</th>
+                            <th  style={style.th}>image2</th>
+                            <th  style={style.th}>image3</th>
+                            <th  style={style.th}>image4</th>
+                            <th  style={style.th}>priceForRent</th>
+                            <th  style={style.th}>Delete</th>
+                        </tr>
 
-                <div>
-                    <Row justify={"center"} >
-                        <Col style={style.col}>
+                        </thead>
+                        <tbody>
+                        {cars.map((car) =>
+                            <tr>
+                                <td style={style.td}><Link to={'/carEdit?id='+car.registrationNo} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                <td style={style.td}>{car.registrationNo}</td>
+                                <td style={style.td}>{car.brand}</td>
+                                <td style={style.td}>{car.type}</td>
+                                <td style={style.td}>{car.transmission}</td>
+                                <td style={style.td}>{car.colour}</td>
+                                <td style={style.td}>{car.noOfPassenger}</td>
+                                <td style={style.td}>{car.fuel}</td>
+                                <td style={style.td}>{car.image1}</td>
+                                <td style={style.td}>{car.image2}</td>
+                                <td style={style.td}>{car.image3}</td>
+                                <td style={style.td}>{car.image4}</td>
+                                <td style={style.td}>{car.priceForRent}</td>
+                                <td style={style.td}><Link  to={'/carManage?id='+car.registrationNo}><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                            </tr>
+                        )}
 
-                            <div style={style.marginImg}>
-                            <div style={style.bs1}>
-                                <div className={"car p-2"} style={style.car} onMouseMove={style.carHover}>
-
-                                    <img src={book_logo} style={style.dashboardImg} alt=""/>
-                                    <div style={style.imgContent}>
-                                        <div>
-                                            <p style={style.paragraph}>Book Car</p>
-                                            <p style={style.paragraph}>Click For Book</p>
-                                        </div>
-                                        <div style={style.rightAlign} className={'mr-4'}>
-                                            <Link to={'/carEdit'}><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link>
-                                            <DeleteOutlined style={{color:'red' , cursor:"pointer"}}/>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            </div>
-
-                            <div style={style.marginImg}>
-                                <div style={style.bs1}>
-                                    <div className={"car p-2"} style={style.car} onMouseMove={style.carHover}>
-
-                                        <img src={book_logo} style={style.dashboardImg} alt=""/>
-                                        <div style={style.imgContent}>
-                                            <div>
-                                                <p style={style.paragraph}>Book Car</p>
-                                                <p style={style.paragraph}>Click For Book</p>
-                                            </div>
-                                            <div style={style.rightAlign} className={'mr-4'}>
-                                                <Link to={'/carEdit'}><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link>
-                                                <DeleteOutlined style={{color:'red' , cursor:"pointer"}}/>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </Col>
-                    </Row>
+                        </tbody>
+                    </table>
                 </div>
-
 
                 <div className="content" style={style.content}>
                     {classes.children}

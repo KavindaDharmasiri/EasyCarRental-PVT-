@@ -25,7 +25,7 @@ export const style = {
 
     dashboardImg: {
         height: "180px",
-        width:"180px",
+        width:"auto",
         borderRadius: "5px",
     },
 
@@ -54,8 +54,7 @@ export const style = {
     },
 
     col:{
-        display:"flex",
-        top: "75px"
+        display:"flex"
     },
 
     marginImg:{
@@ -64,8 +63,11 @@ export const style = {
 
     car:{
         borderRadius: "5px"
-    }
+    },
 
+    butn: {
+
+    }
 
 
 }

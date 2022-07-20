@@ -1,39 +1,100 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import {Divider} from "antd";
+import GetService from "../../../services/GetService";
+
+let idd = 'sfd'
 
 class DefaultRentAndBooking extends Component {
     constructor(props) {
         super(props);
+
+
+        this.state = {
+            data: [],
+            dataTwo: [],
+            id: ''
+        }
     }
+
+    async loadData() {
+        let res = await GetService.fetchAllRent();
+        console.log("row response: " + JSON.stringify(res.data.data[0].name))
+        let temp = [];
+        for (let i = 0; i < res.data.data.length; i++) {
+            if (res.data.data[i].userId === idd) {
+
+                temp.push(res.data.data[i])
+
+            }
+        }
+
+        console.log(temp.length)
+        this.setState({
+            data : temp
+        })
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
+    }
+
+
+    async loadReserData(){
+        let res = await GetService.fetchAllReservation();
+        console.log("row response: " + JSON.stringify(res.data.data[0].name))
+        let temp = [];
+        for (let i = 0; i < res.data.data.length; i++) {
+            if (res.data.data[i].userId === idd) {
+
+                temp.push(res.data.data[i])
+
+            }
+        }
+
+        console.log(temp.length)
+        this.setState({
+            dataTwo : temp
+        })
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+        }
+    }
+
+
+    async componentDidMount() {
+        let link = window.location.href
+
+        let regNo;
+        regNo = String(link.slice(40));
+
+        this.setState({
+            id: regNo
+        })
+
+        this.loadData()
+        this.loadReserData()
+
+
+    }
+
 
     render() {
         const {classes} = this.props;
 
-        const columns: GridColDef[] = [
-            { field: 'id', headerName: 'DriverID', width: 130 },
-            { field: 'bDate', headerName: 'Borrow Date', width: 130 },
-            { field: 'eDate', headerName: 'End Date', width: 130 },
-            {field: 'onGoing', headerName: 'Success', width: 130,},
-            {field: 'ttl', headerName: 'Total', type: 'number', width: 130,},
-        ];
-
-        const rows = [
-            { id: 1, eDate: 'Snow', bDate: 'Jon', ttl: 35 ,onGoing : 'yes' },
-            { id: 2, eDate: 'Lannister', bDate: 'Cersei', ttl: 42 ,onGoing : 'yes'},
-            { id: 3, eDate: 'Lannister', bDate: 'Jaime', ttl: 45,onGoing : 'yes' },
-            { id: 4, eDate: 'Stark', bDate: 'Arya', ttl: 16 ,onGoing : 'yes'},
-            { id: 5, eDate: 'Targaryen', bDate: 'Daenerys', ttl: null ,onGoing : 'yes'},
-            { id: 6, eDate: 'Melisandre', bDate: null, ttl: 150 ,onGoing : 'yes'},
-            { id: 7, eDate: 'Clifford', bDate: 'Ferrara', ttl: 44 ,onGoing : 'yes'},
-            { id: 8, eDate: 'Frances', bDate: 'Rossini', ttl: 36 ,onGoing : 'yes'},
-            { id: 9, eDate: 'Roxie', bDate: 'Harvey', ttl: 65 ,onGoing : 'yes'},
-        ];
-
+        const rents = this.state.data
+        const reservations = this.state.dataTwo
 
         return (
+
 
             <div style={style.body}>
                 <div style={style.bs1}>
@@ -42,23 +103,74 @@ class DefaultRentAndBooking extends Component {
 
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
 
-
+                            <h3>{this.state.id}</h3>
                         </div>
                     </div>
                 </div>
 
                 <Divider type={'horizontal'} dashed style={style.divider}>Your Booking Details</Divider>
 
-            <div style={{ height: 400, width: '100%' }}>
-                <DataGrid
-                    rows={rows}
-                    columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
-                    checkboxSelection
-                />
-            </div>
+                <div style={style.appcontainer}>
+                    <table style={style.table}>
+                        <thead>
+                        <tr>
+                            <th style={style.th}>PaymentId</th>
+                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Type</th>
+                            <th style={style.th}>vehicleRegisterNo</th>
+                            <th style={style.th}>total</th>
 
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        {rents.map((rent) =>
+                            <tr>
+                                <td style={style.td}>{rent.paymentId}</td>
+                                <td style={style.td}>{rent.releventDate}</td>
+                                <td style={style.td}>{rent.type}</td>
+                                <td style={style.td}>{rent.vehicleRegistrationNo}</td>
+                                <td style={style.td}>{rent.total}</td>
+                            </tr>
+                        )}
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br/><br/><br/><br/><br/>
+
+                <Divider type={'horizontal'} dashed style={style.divider}>Your Reservation Details</Divider>
+
+                <div style={style.appcontainer}>
+                    <table style={style.table}>
+                        <thead>
+                        <tr>
+                            <th style={style.th}>PaymentId</th>
+                            <th style={style.th}>DriverId</th>
+                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Type</th>
+                            <th style={style.th}>vehicleRegisterNo</th>
+                            <th style={style.th}>total</th>
+
+                        </tr>
+
+                        </thead>
+                        <tbody>
+                        {reservations.map((reservation) =>
+                            <tr>
+                                <td style={style.td}>{reservation.paymentId}</td>
+                                <td style={style.td}>{reservation.driverId}</td>
+                                <td style={style.td}>{reservation.releventDate}</td>
+                                <td style={style.td}>{reservation.type}</td>
+                                <td style={style.td}>{reservation.vehicleRegistrationNo}</td>
+                                <td style={style.td}>{reservation.total}</td>
+                            </tr>
+                        )}
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
         )

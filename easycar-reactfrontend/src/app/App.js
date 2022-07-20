@@ -18,13 +18,14 @@ import AdminDriverEdit from "../pages/AdminEditDriver";
 import PaymentMdl from "../pages/PaymentModel";
 import BookingAndReservationAdmin from "../pages/AdminReservationAndBooking";
 import FinalReport from "../pages/CheckFinalResult";
+import FirstPage from "../pages/FirstHomePage";
 import 'antd/dist/antd.css';
 
 
 function App() {
   return (
     <Routes>
-        <Route exact path='/' element={<HomePage/>}/>
+        <Route exact path='firstPage' element={<HomePage/>}/>
         <Route exact path='bookingCar' element={<BookingCar/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='register' element={<Register/>}/>
@@ -42,6 +43,8 @@ function App() {
         <Route path='paymentmdl' element={<PaymentMdl/>}/>
         <Route path='adminpanelbookingandreservation' element={<BookingAndReservationAdmin/>}/>
         <Route path='finalReport' element={<FinalReport/>}/>
+          <Route path='/' element={<FirstPage/>}/>
+
     </Routes>
 
   );

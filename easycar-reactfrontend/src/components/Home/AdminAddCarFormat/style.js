@@ -21,7 +21,7 @@ export const style = {
     },
 
     body: {
-        backgroundColor: "azure",
+        backgroundColor: "#FFFFFF",
         fontFamily: "'Montserrat', sans-serif"
     },
 
@@ -76,7 +76,8 @@ export const style = {
         backgroundColor: "white",
         color: "#00008B",
         border: "1px solid #00008B",
-        fontFamily: "'Montserrat', sans-serif"
+        fontFamily: "'Montserrat', sans-serif",
+        marginRight: "20px"
     },
 
     loginForm:{

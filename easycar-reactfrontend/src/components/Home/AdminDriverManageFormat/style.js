@@ -20,7 +20,7 @@ export const style = {
     },
 
     body: {
-        backgroundColor: "azure"
+        backgroundColor: "#FFFFFF"
     },
 
     dashboardImg: {
@@ -45,7 +45,8 @@ export const style = {
         backgroundColor: "white",
         color: "#00008B",
         border: "1px solid #00008B",
-        fontFamily: "'Montserrat', sans-serif"
+        fontFamily: "'Montserrat', sans-serif",
+        marginRight: "20px"
     },
 
     rightAlign:{
@@ -62,7 +63,40 @@ export const style = {
 
     car:{
         borderRadius: "5px"
-    }
+    },
+
+
+    appcontainer: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "10px",
+        padding: "1rem"
+    },
+
+    table: {
+        borderCollapse: "collapse",
+        width: "100%"
+    },
+
+    td: {
+        border: "1px solid #ffffff",
+        textAlign: "left",
+        padding: "8px",
+        fontSize: "12px",
+        backgroundColor: "rgb(205, 235, 253)"
+    },
+
+    th: {
+        backgroundColor: "rgb(117, 201, 250)"
+    },
+
+
+    form: {
+        display: "flex",
+        gap: "5px",
+        fontSize: "28px"
+    },
+
 
 
 
