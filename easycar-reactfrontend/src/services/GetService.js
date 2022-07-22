@@ -55,6 +55,18 @@ class GetService {
         return await promise
     }
 
+    fetchAllPayments = async () => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('http://localhost:8080/easycarRental_war/api/v1/payment/getAll')
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((er) => {
+                    return resolve(er)
+                })
+        })
+        return await promise
+    }
 
     fetchOneCar = async (id) => {
         const promise = new Promise((resolve, reject) => {

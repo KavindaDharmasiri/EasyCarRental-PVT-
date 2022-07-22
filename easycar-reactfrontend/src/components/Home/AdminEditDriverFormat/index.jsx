@@ -133,7 +133,7 @@ class DefaultDriverEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"age"} label={"Age"} rules={[{required: true}]}>
-                                <Input value={this.state.formData.age}
+                                <Input type={"number"} value={this.state.formData.age}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.age = e.target.value
@@ -151,7 +151,7 @@ class DefaultDriverEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"exp"} label={"Experience"} rules={[{required: true}]}>
-                                <Input value={this.state.formData.experience}
+                                <Input type={"number"} value={this.state.formData.experience}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.experience = e.target.value
@@ -169,16 +169,20 @@ class DefaultDriverEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"nic"} label={"Nic"} rules={[{required: true}]}>
-                                <Input value={this.state.formData.nic}
+                                <Input accept="image/*"
+                                       className={classes.input}
+                                       id="upload-profile-image"
+                                       type="file"
+                                       value={this.state.formData.nic}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.nic = e.target.value
-                                           this.setState({formData})
+                                           this.setState({ formData })
                                        }}/>
                             </Form.Item>
 
                             <Form.Item name={"salary"} label={"Salary"} rules={[{required: true}]}>
-                                <Input value={this.state.formData.salary}
+                                <Input type={"number"} value={this.state.formData.salary}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.salary = e.target.value

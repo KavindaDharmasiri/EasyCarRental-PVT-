@@ -17,7 +17,6 @@ export const style = {
 
     content: {
 
-
     },
 
     body: {
@@ -26,7 +25,7 @@ export const style = {
 
     dashboardImg: {
         height: "180px",
-        width:"auto",
+        width:"180px",
         borderRadius: "5px",
     },
 
@@ -55,7 +54,8 @@ export const style = {
     },
 
     col:{
-        display:"flex"
+        display:"flex",
+        top: "75px"
     },
 
     marginImg:{
@@ -64,46 +64,7 @@ export const style = {
 
     car:{
         borderRadius: "5px"
-    },
-
-
-    appcontainer: {
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        padding: "1rem"
-    },
-
-    table: {
-        borderCollapse: "collapse",
-        width: "100%"
-    },
-
-    td: {
-        border: "1px solid #ffffff",
-        textAlign: "left",
-        padding: "8px",
-        fontSize: "12px",
-        backgroundColor: "rgb(205, 235, 253)"
-    },
-
-    th: {
-        backgroundColor: "rgb(117, 201, 250)"
-    },
-
-
-    form: {
-        display: "flex",
-        gap: "5px",
-        fontSize: "28px"
-    },
-    imgTable: {
-        height: "60px",
-        width:"60px"
     }
-
-
-
 
 
 

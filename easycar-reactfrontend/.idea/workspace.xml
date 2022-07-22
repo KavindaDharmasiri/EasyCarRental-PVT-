@@ -3,58 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="6f6f66a3-3ffb-4035-abdf-8bbfb445eced" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddCarFormat/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminAddDriverFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminCarManageFormat/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDashBoardFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDashBoardFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminDriverManageFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditCarFormat/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/AdminEditDriverFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarDetailFormat/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/BookingCarFormat/style.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Home/LoginFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/LoginFormat/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/CarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/DriverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/DriverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/RentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/RentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/CarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/CarDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/DriverDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/DriverDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Rent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Rent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/src/main/java/lk/easyCarRental/spring/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/CarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/DriverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/DriverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/RentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/CarDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/CarDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/DriverDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/DriverDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/dto/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Rent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Rent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0.war" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/CarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/CarController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/DriverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/DriverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/RentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/RentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/ReservationController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/CarDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/CarDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/DriverDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/DriverDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/dto/UserDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Rent.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Rent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../easycarRental/target/easycarRental-1.0.0/WEB-INF/classes/lk/easyCarRental/spring/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/RegisterFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/RegisterFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarDetailFormat/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/ReserveCarFormat/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/GetService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/GetService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/PostService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PostService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/DeleteCar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/DeleteDriver" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -102,11 +74,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\spring\easycar-reactfrontend\src\pages\DeleteDriver" />
+      <recent name="D:\spring\easycar-reactfrontend\src\components\Home\DeleteDriver" />
       <recent name="D:\spring\easycar-reactfrontend\src\pages\DeleteCar" />
+      <recent name="D:\spring\easycar-reactfrontend\src\components\Home\DeleteCarForm" />
       <recent name="D:\spring\easycar-reactfrontend\src\components\Home\DeleteCarFormat" />
-      <recent name="D:\spring\easycar-reactfrontend\src\pages\FirstHomePage" />
-      <recent name="D:\spring\easycar-reactfrontend\src\components\Home\FirstHomePageFormt" />
-      <recent name="D:\spring\easycar-reactfrontend\src\components\Home\CheckFinalResultFormat" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\spring\easycar-reactfrontend\src\components\Home\LoginFormat" />
@@ -136,7 +108,13 @@
       <workItem from="1658221960792" duration="12510000" />
       <workItem from="1658283615944" duration="11368000" />
       <workItem from="1658295521019" duration="27656000" />
-      <workItem from="1658330557635" duration="1088000" />
+      <workItem from="1658330557635" duration="1130000" />
+      <workItem from="1658370300197" duration="16000000" />
+      <workItem from="1658387339022" duration="6745000" />
+      <workItem from="1658394735376" duration="256000" />
+      <workItem from="1658395496849" duration="7239000" />
+      <workItem from="1658409909854" duration="4819000" />
+      <workItem from="1658465456390" duration="6520000" />
     </task>
     <servers />
   </component>

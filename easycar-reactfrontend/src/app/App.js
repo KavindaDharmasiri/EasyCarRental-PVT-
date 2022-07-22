@@ -19,6 +19,8 @@ import PaymentMdl from "../pages/PaymentModel";
 import BookingAndReservationAdmin from "../pages/AdminReservationAndBooking";
 import FinalReport from "../pages/CheckFinalResult";
 import FirstPage from "../pages/FirstHomePage";
+import DeleteCar from "../pages/DeleteCar";
+import DeleteDriver from "../pages/DeleteDriver";
 import 'antd/dist/antd.css';
 
 
@@ -43,6 +45,8 @@ function App() {
         <Route path='paymentmdl' element={<PaymentMdl/>}/>
         <Route path='adminpanelbookingandreservation' element={<BookingAndReservationAdmin/>}/>
         <Route path='finalReport' element={<FinalReport/>}/>
+        <Route path='deleteCar' element={<DeleteCar/>}/>
+        <Route path='deleteDriver' element={<DeleteDriver/>}/>
           <Route path='/' element={<FirstPage/>}/>
 
     </Routes>

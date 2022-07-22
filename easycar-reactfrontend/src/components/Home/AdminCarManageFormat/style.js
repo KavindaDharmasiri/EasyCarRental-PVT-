@@ -93,5 +93,10 @@ export const style = {
         fontSize: "28px"
     },
 
+    imgTable: {
+        height: "60px",
+        width:"60px"
+    }
+
 
 }

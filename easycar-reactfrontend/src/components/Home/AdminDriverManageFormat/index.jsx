@@ -6,6 +6,8 @@ import book_logo from "../../../assets/img/book.jpg";
 import {Link} from "react-router-dom";
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import GetService from "../../../services/GetService";
+let imgURL = "F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war";
+let uu = "unnamed.png"
 
 class DefaultDriverManage extends Component {
     constructor(props) {
@@ -46,6 +48,7 @@ class DefaultDriverManage extends Component {
 
         const drivers = this.state.data
 
+        console.log(drivers)
 
         return (
 
@@ -66,7 +69,7 @@ class DefaultDriverManage extends Component {
                     <table  style={style.table}>
                         <thead>
                         <tr>
-                            <th  style={style.th}>Edit</th>
+
                             <th  style={style.th}>id</th>
                             <th  style={style.th}>address</th>
                             <th style={style.th}>age</th>
@@ -76,24 +79,25 @@ class DefaultDriverManage extends Component {
                             <th  style={style.th}>nic</th>
                             <th  style={style.th}>salary</th>
                             <th  style={style.th}>vehicleRegisterNo</th>
-                            <th  style={style.th}>Delete</th>
+                            <th  style={style.th}>Action</th>
                         </tr>
 
                         </thead>
                         <tbody>
                         {drivers.map((driver) =>
                             <tr>
-                                <td style={style.td}><Link to={'/driverEdit?id='+driver.id} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+
                                 <td style={style.td}>{driver.id}</td>
+                                {/*<td style={style.td}><img src={book_logo} alt=""/></td>*/}
                                 <td style={style.td}>{driver.address}</td>
                                 <td style={style.td}>{driver.age}</td>
                                 <td style={style.td}>{driver.contact}</td>
                                 <td style={style.td}>{driver.experience}</td>
                                 <td style={style.td}>{driver.name}</td>
-                                <td style={style.td}>{driver.nic}</td>
+                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+driver.nic)} alt=""/></td>
                                 <td style={style.td}>{driver.salary}</td>
                                 <td style={style.td}>{driver.vehicleRegisterNo}</td>
-                                <td style={style.td}><Link  to={'/driverManage?id='+driver.id}><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                <td style={style.td}><Link to={'/driverEdit?id='+driver.id} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link><Link to={'/deleteDriver?id='+driver.id}><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
                             </tr>
                         )}
 

@@ -108,7 +108,7 @@ class DefaultLogin extends Component {
                                 <Input type={"password"} style={style.input} onChange={changeevent}/>
                             </Form.Item>
 
-                            <button style={style.btn1} onClick={this.buttonHandler}>Login</button>
+                            <button style={style.btn1} ><Link to={this.buttonHandler()}>Login</Link></button>
                             <br/>
                             <Link style={style.aTag} to='/register'>Click Here to Register</Link>
                         </Form>

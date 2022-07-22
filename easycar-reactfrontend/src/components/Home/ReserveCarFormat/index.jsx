@@ -85,7 +85,7 @@ class DefaultReserve extends Component {
                             <tbody>
                             {cars.map((car) =>
                                 <tr>
-                                    <td style={style.td}>{car.image1}</td>
+                                    <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image1)} alt=""/></td>
                                     <td style={style.td}>{car.brand}</td>
                                     <td style={style.td}>{car.type}</td>
                                     <td style={style.td}><Link

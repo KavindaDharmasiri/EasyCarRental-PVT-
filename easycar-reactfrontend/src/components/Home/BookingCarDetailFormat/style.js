@@ -119,8 +119,8 @@ export const style = {
 
     image:{
         padding:"15px",
-        height: "40%",
-        width: "40%"
+        height: "200px",
+        width: "220px"
     },
 
     separate:{

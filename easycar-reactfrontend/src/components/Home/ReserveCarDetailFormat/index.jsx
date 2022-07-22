@@ -1,15 +1,23 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, DatePicker, Divider, Form, Row} from 'antd';
+import {Col, DatePicker, Divider, Form, Row, Space} from 'antd';
 import car_img from "../../../assets/img/car.jpg";
 import {Link} from "react-router-dom";
 import PaymentModel from "../../common/PaymentModel";
 import GetService from "../../../services/GetService";
+import moment from 'moment'
 
-const RangePicker = DatePicker
+const { RangePicker } = DatePicker;
+
+
+
 let regNo;
-let id;
+let price;
+let id = null;
+let image1;
+let i;
+
 
 class DefaultReservationDetail extends Component {
     constructor(props) {
@@ -21,7 +29,8 @@ class DefaultReservationDetail extends Component {
             alert: false,
             message: '',
             severity: '',
-            id:''
+            id:'',
+            ttl: ''
         }
     }
 
@@ -30,12 +39,12 @@ class DefaultReservationDetail extends Component {
 
         regNo = String(link.slice(35,39));
 
-
         id = String(link.slice(46));
 
-        this.setState({
-            id:id
-        })
+        console.log('id')
+        console.log(id)
+        console.log('reg')
+        console.log(regNo)
         this.initializee(regNo)
 
     }
@@ -48,11 +57,11 @@ class DefaultReservationDetail extends Component {
 
                 console.log(res.data.data[i])
                 this.setState({
-
                     data: res.data.data[i]
                 })
 
-
+                price=res.data.data[i].priceForRent
+                image1 = res.data.data[i].image1
             }
         }
 
@@ -64,103 +73,135 @@ class DefaultReservationDetail extends Component {
         }
     }
 
+    selectTimeslots(values){
+        let oneDate = parseInt(moment(values[0].format('MMM DD YYYY HH:MM')).date())
+
+        let oneHour = parseInt(moment(values[0].format('MMM DD YYYY HH:MM')).hour())
+
+        let twoDate = parseInt(moment(values[1].format('MMM DD YYYY HH:MM')).date())
+
+        let twoHour = parseInt(moment(values[1].format('MMM DD YYYY HH:MM')).hour())
+
+        console.log(price)
+        let te = 24 - oneHour;
+        let te2 = 24 - twoHour;
+
+        i =((twoDate-oneDate-1)*24+te+te2)*price
+
+
+        document.getElementById("ttlId").innerText = ((twoDate-oneDate-1)*24+te+te2)*price
+
+    }
+
     render() {
         const {classes} = this.props;
 
         const cars = this.state.data
 
-        return (
+        const image2 = cars.image2
+        console.log(image1)
 
-            <div style={style.body}>
-                <div style={style.bs1}>
-                    <div className="header" style={style.header}>
-                        <div className="d-flex justify-content-between">
+        if (id !== null) {
+            return (
 
-                            <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
+                <div style={style.body}>
+                    <div style={style.bs1}>
+                        <div className="header" style={style.header}>
+                            <div className="d-flex justify-content-between">
 
-                            <h3>{this.state.id}</h3>
+                                <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
 
+                                <h3>{id}</h3>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div>
+                    <div>
 
-                    <h1 style={style.upH1}>Reservation Car</h1>
+                        <h1 style={style.upH1}>Reservation Car</h1>
 
-                    <div style={style.login}>
-                        <Row className={'d-flex align-items-center'}>
+                        <div style={style.login}>
+                            <Row className={'d-flex align-items-center'}>
 
-                            <Col lg={16} style={style.carImage}>
-                                <div style={style.separate}>
-                                    <img style={style.image} src={car_img} alt=""/>
-                                    <img style={style.image} src={car_img} alt=""/>
-                                </div>
-                                <br/>
-                                <div style={style.separate}>
-                                    <img style={style.image} src={car_img} alt=""/>
-                                    <img style={style.image} src={car_img} alt=""/>
-                                </div>
+                                <Col lg={16} style={style.carImage}>
+                                    <div style={style.separate}>
+                                        <img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image1)} alt=""/>
+                                        <img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image2)} alt=""/>
 
-                            </Col>
+                                    </div>
+                                    <br/>
+                                    <div style={style.separate}>
+                                        <img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image3)} alt=""/>
+                                        <img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image4)} alt=""/>
+                                    </div>
 
-                            <Col lg={8}>
+                                </Col>
 
-                                <Divider type={'horizontal'} dashed style={style.divider}>Car Information</Divider>
-                                <Form layout={"horizontal"} style={style.loginForm}>
+                                <Col lg={8}>
 
-                                    <label>Vehicle register no : <label style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
-                                    <label>Brand : <label style={style.secondLbl}>{cars.brand}</label></label><br/>
-                                    <label>Color : <label style={style.secondLbl}>{cars.colour}</label></label><br/>
-                                    <label>Fuel : <label style={style.secondLbl}>{cars.fuel}</label></label><br/>
-                                    <label>No of Passengers : <label style={style.secondLbl}>{cars.noOfPassenger}</label></label><br/>
-                                    <label>Price for rent : <label style={style.secondLbl}>{cars.priceForRent}/-</label></label><br/>
-                                    <label>Transmission : <label style={style.secondLbl}>{cars.transmission}</label></label><br/>
-                                    <label>Type : <label style={style.secondLbl}>{cars.type}</label></label><br/>
+                                    <Divider type={'horizontal'} dashed style={style.divider}>Car Information</Divider>
+                                    <Form layout={"horizontal"} style={style.loginForm}>
 
-
-                                </Form>
-
-                                <Divider type={'horizontal'} dashed style={style.divider}>Booking Information</Divider>
-                                <Form layout={"horizontal"} style={style.loginForm}>
-
-                                    <label>userId : <label style={style.secondLbl}>{this.state.id}</label></label><br/>
-                                    <label>paymentId : <label style={style.secondLbl}>res</label></label><br/>
-                                    <label>type : <label style={style.secondLbl}>Booking</label></label><br/>
-                                    <label>vehicle register number : <label
-                                        style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
-
-                                    <label>borrow date</label><br/>
-                                    <RangePicker showTime={{format: 'HH:MM'}} format='MMM DD YYYY HH:MM'/><br/>
-
-                                    <label>End date</label><br/>
-                                    <RangePicker showTime={{format: 'HH:MM'}} format='MMM DD YYYY HH:MM'/><br/>
-
-                                    <label>Total : <label style={style.secondLbl}>res /-</label></label><br/>
+                                        <label>Vehicle register no : <label
+                                            style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
+                                        <label>Brand : <label style={style.secondLbl}>{cars.brand}</label></label><br/>
+                                        {/*<img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image2)} alt=""/>*/}
+                                        <label>Color : <label style={style.secondLbl}>{cars.colour}</label></label><br/>
+                                        <label>Fuel : <label style={style.secondLbl}>{cars.fuel}</label></label><br/>
+                                        <label>No of Passengers : <label
+                                            style={style.secondLbl}>{cars.noOfPassenger}</label></label><br/>
+                                        <label>Price for rent : <label
+                                            style={style.secondLbl}>{cars.priceForRent}/-</label></label><br/>
+                                        <label>Transmission : <label style={style.secondLbl}>{cars.transmission}</label></label><br/>
+                                        <label>Type : <label style={style.secondLbl}>{cars.type}</label></label><br/>
 
 
-                                    <button style={style.btn1} ><Link to={'/paymentmdl?name=Reservation'}>Book Car</Link></button>
+                                    </Form>
+
+                                    <Divider type={'horizontal'} dashed style={style.divider}>Reservation
+                                        Information</Divider>
+                                    <Form layout={"horizontal"} style={style.loginForm}>
+
+                                        <label>userId : <label style={style.secondLbl}>{id}</label></label><br/>
+                                        <label>paymentId : <label style={style.secondLbl}>res</label></label><br/>
+                                        <label>type : <label style={style.secondLbl}>Booking</label></label><br/>
+                                        <label>vehicle register number : <label
+                                            style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
 
 
-                                </Form>
-                            </Col>
-                        </Row>
+                                        <label>Start & End date</label><br/>
+                                        <RangePicker onChange={this.selectTimeslots} showTime={{format: 'HH:MM'}}
+                                                     format='MMM DD YYYY HH:MM'/><br/>
+
+                                        <label>Total : <label id={'ttlId'} style={style.secondLbl}>res
+                                            /-</label></label><br/>
+
+
+                                        <button style={style.btn1}><Link to={'/paymentmdl?name=Reservation'}>Book
+                                            Car</Link>
+                                        </button>
+
+
+                                    </Form>
+                                </Col>
+                            </Row>
+                        </div>
+
+                    </div>
+
+
+                    <div className="content" style={style.content}>
+                        {classes.children}
                     </div>
 
                 </div>
 
-
-                <div className="content" style={style.content}>
-                    {classes.children}
-                </div>
-
-            </div>
-
-        )
+            )
+        }
     }
 
 }
 
 export default withStyles(style)(DefaultReservationDetail)
-

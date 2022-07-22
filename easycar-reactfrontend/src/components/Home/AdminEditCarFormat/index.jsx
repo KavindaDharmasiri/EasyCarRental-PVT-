@@ -135,14 +135,6 @@ class DefaultCarEdit extends Component {
 
                             <label>registerNo</label>
                             <h3 >{regNo}</h3>
-                            {/*<Form.Item name={"registerNo"} label={"Registration No"} rules={[{required:true}]}>
-                                <Input value={this.state.formData.registrationNo} defaultValue={String(regNo)}
-                                       onChange={(e) => {
-                                           let formData = this.state.formData
-                                           formData.registrationNo = e.target.value
-                                           this.setState({ formData })
-                                       }}/>
-                            </Form.Item>*/}
 
                             <Form.Item name={"brand"} label={"Brand"} rules={[{required:true}]}>
                                 <Input value={this.state.formData.brand}
@@ -172,7 +164,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"fImg"} label={"Front image"} rules={[{required: true}]}>
-                                <Input id={'file'} name={'myFile'} type={'file'} className={'form-control'}
+                                <Input accept="image/*" id={'file'} name={'myFile'} type={'image'} className={'form-control'}
                                        /*value={this.state.formData.image1}
                                        onChange={(e) => {
                                            let formData = this.state.formData
@@ -182,7 +174,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"bImg"} label={"Back image"} rules={[{required: true}]}>
-                                <Input id={'file'} name={'myFile'} type={'file'} className={'form-control'}
+                                <Input accept="image/*" id={'file'} name={'myFile'} type={'image'} className={'form-control'}
                                        /*value={this.state.formData.image2}
                                        onChange={(e) => {
                                            let formData = this.state.formData
@@ -192,7 +184,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"sImg1"} label={"Side image 1"} rules={[{required: true}]}>
-                                <Input id={'file'} name={'myFile'} type={'file'} className={'form-control'}
+                                <Input accept="image/*" id={'file'} name={'myFile'} type={'image'} className={'form-control'}
                                        /*value={this.state.formData.image3}
                                        onChange={(e) => {
                                            let formData = this.state.formData
@@ -202,7 +194,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"sImg2"} label={"Side image 2"} rules={[{required: true}]}>
-                                <Input id={'file'} name={'myFile'} type={'file'} className={'form-control'}
+                                <Input accept="image/*" id={'file'} name={'myFile'} type={'image'} className={'form-control'}
                                        /*value={this.state.formData.image4}
                                        onChange={(e) => {
                                            let formData = this.state.formData
@@ -212,7 +204,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"noOfPassenger"} label={"No of Passenger"} rules={[{required:true}]}>
-                                <Input value={this.state.formData.noOfPassenger}
+                                <Input type={"number"} value={this.state.formData.noOfPassenger}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.noOfPassenger = e.target.value
@@ -221,7 +213,7 @@ class DefaultCarEdit extends Component {
                             </Form.Item>
 
                             <Form.Item name={"priceForHour"} label={"Price for hour"} rules={[{required:true}]}>
-                                <Input value={this.state.formData.priceForRent}
+                                <Input type={"number"} value={this.state.formData.priceForRent}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.priceForRent = e.target.value

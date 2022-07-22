@@ -102,7 +102,7 @@ class DefaultAdmin extends Component {
                                                 <p style={style.paragraph}>Click For Watch</p>
                                             </div>
                                             <div style={style.rightAlign} >
-                                                <button style={style.btn1}>Watch Now</button>
+                                                <button style={style.btn1}><Link to={'/finalReport'}>Watch Now</Link></button>
                                             </div>
                                         </div>
 

@@ -49,6 +49,7 @@ class DefaultCarManage extends Component {
         const cars = this.state.data
 
 
+
         return (
 
             <div style={style.body}>
@@ -68,7 +69,6 @@ class DefaultCarManage extends Component {
                     <table  style={style.table}>
                         <thead>
                         <tr>
-                            <th  style={style.th}>Edit</th>
                             <th  style={style.th}>registrationNo</th>
                             <th style={style.th}>brand</th>
                             <th style={style.th}>type</th>
@@ -81,14 +81,13 @@ class DefaultCarManage extends Component {
                             <th  style={style.th}>image3</th>
                             <th  style={style.th}>image4</th>
                             <th  style={style.th}>priceForRent</th>
-                            <th  style={style.th}>Delete</th>
+                            <th  style={style.th}>Action</th>
                         </tr>
 
                         </thead>
                         <tbody>
                         {cars.map((car) =>
                             <tr>
-                                <td style={style.td}><Link to={'/carEdit?id='+car.registrationNo} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
                                 <td style={style.td}>{car.registrationNo}</td>
                                 <td style={style.td}>{car.brand}</td>
                                 <td style={style.td}>{car.type}</td>
@@ -96,12 +95,16 @@ class DefaultCarManage extends Component {
                                 <td style={style.td}>{car.colour}</td>
                                 <td style={style.td}>{car.noOfPassenger}</td>
                                 <td style={style.td}>{car.fuel}</td>
-                                <td style={style.td}>{car.image1}</td>
+                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image1)} alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image2)} alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image3)} alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image4)} alt=""/></td>
+                                {/*<td style={style.td}>{car.image1}</td>
                                 <td style={style.td}>{car.image2}</td>
                                 <td style={style.td}>{car.image3}</td>
-                                <td style={style.td}>{car.image4}</td>
+                                <td style={style.td}>{car.image4}</td>*/}
                                 <td style={style.td}>{car.priceForRent}</td>
-                                <td style={style.td}><Link  to={'/carManage?id='+car.registrationNo}><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                <td style={style.td}><Link to={'/carEdit?id='+car.registrationNo} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link><Link to={'/deleteCar?id='+car.registrationNo} ><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
                             </tr>
                         )}
 
