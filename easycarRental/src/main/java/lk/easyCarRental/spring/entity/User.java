@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -28,5 +29,6 @@ public class User {
     private int age;
     private String nic;
     private String contact;
-
+    private String password;
+    private String type;
 }

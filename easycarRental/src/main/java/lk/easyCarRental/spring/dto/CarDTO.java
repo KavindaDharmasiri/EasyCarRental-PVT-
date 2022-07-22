@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
+
 /**
  * @Created_By_: Kavinda Gimhan
  * @Date_: 7/6/2022
@@ -25,5 +27,8 @@ public class CarDTO {
     private int noOfPassenger;
     private double priceForRent;
     private String fuel;
-    private byte[] image;
+    private String image1;
+    private String image2;
+    private String image3;
+    private String image4;
 }

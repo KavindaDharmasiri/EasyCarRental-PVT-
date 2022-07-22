@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
+
 /**
  * @Created_By_: Kavinda Gimhan
  * @Date_: 6/30/2022

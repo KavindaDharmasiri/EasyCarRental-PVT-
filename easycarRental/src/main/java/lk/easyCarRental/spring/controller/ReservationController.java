@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/Reservation")
+@CrossOrigin(origins = "*")
 public class ReservationController {
     @Autowired
     lk.easyCarRental.spring.service.ReservationService reservationService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getAll" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public lk.easyCarRental.spring.util.ResponseUtil getAllReservations() {
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Ok", reservationService.getAllReservations());
     }

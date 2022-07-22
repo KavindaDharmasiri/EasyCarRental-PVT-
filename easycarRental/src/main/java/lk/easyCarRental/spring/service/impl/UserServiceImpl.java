@@ -9,7 +9,10 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -32,6 +35,14 @@ public class UserServiceImpl implements lk.easyCarRental.spring.service.UserServ
     @Override
     public void saveUser(UserDTO dto) {
         if (!repo.existsById(dto.getId())) {
+
+            String fileName = StringUtils.cleanPath(dto.getNic());
+            if(fileName.contains(".."))
+            {
+                System.out.println("not a a valid file");
+            }
+            /*dto.setNic(Base64.getEncoder().encodeToString(dto.getNic().getBytes()));
+*/
             repo.save(mapper.map(dto, User.class));
         } else {
             throw new RuntimeException("Customer Already Exist..!");
@@ -70,7 +81,7 @@ public class UserServiceImpl implements lk.easyCarRental.spring.service.UserServ
 
     @Override
     public List<UserDTO> getAllUsers() {
-        return mapper.map(repo.findAll(), new TypeToken<List<DriverDTO>>() {
+        return mapper.map(repo.findAll(), new TypeToken<List<UserDTO>>() {
         }.getType());
     }
 }

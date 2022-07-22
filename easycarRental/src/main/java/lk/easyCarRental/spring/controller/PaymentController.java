@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/payment")
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class PaymentController {
     @Autowired
     lk.easyCarRental.spring.service.PaymentService paymentService;
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/getAll",produces = MediaType.APPLICATION_JSON_VALUE)
     public lk.easyCarRental.spring.util.ResponseUtil getAllPayments() {
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Ok", paymentService.getAllPayments());
     }

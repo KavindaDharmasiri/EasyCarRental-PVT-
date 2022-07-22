@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
+
 /**
  * @Created_By_: Kavinda Gimhan
  * @Date_: 7/1/2022
@@ -23,4 +25,6 @@ public class UserDTO {
     private int age;
     private String nic;
     private String contact;
+    private String password;
+    private String type;
 }

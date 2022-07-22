@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -31,6 +32,9 @@ public class Car {
     private int noOfPassenger;
     private double priceForRent;
     private String fuel;
-    private byte[] image;
+    private String image1;
+    private String image2;
+    private String image3;
+    private String image4;
 
 }

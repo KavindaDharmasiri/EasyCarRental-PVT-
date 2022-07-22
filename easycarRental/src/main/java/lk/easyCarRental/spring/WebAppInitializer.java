@@ -2,6 +2,9 @@ package lk.easyCarRental.spring;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * @Created_By_: Kavinda Gimhan
  * @Date_: 6/30/2022
@@ -23,6 +26,14 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    /*
+     * We need to override this method inorder to set MultipartConfigElement
+     */
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement(System.getProperty("java.io.tmpdir")));
     }
 }
 

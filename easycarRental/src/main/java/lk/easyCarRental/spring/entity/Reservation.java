@@ -21,9 +21,10 @@ import javax.persistence.Id;
 @Entity
 @ToString
 public class Reservation {
-    @Id
+    private String userId;
     private String driverId;
     private String vehicleRegistrationNo;
+    @Id
     private String paymentId;
     private double total;
     private String type;

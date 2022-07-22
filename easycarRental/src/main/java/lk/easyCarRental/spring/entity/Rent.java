@@ -21,9 +21,9 @@ import javax.persistence.Id;
 @Entity
 @ToString
 public class Rent {
-    @Id
     private String userId;
     private String vehicleRegistrationNo;
+    @Id
     private String paymentId;
     private double total;
     private String type;
