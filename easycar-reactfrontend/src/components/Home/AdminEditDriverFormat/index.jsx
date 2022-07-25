@@ -8,7 +8,6 @@ import GetService from "../../../services/GetService";
 
 let regNo;
 
-
 class DefaultDriverEdit extends Component {
     constructor(props) {
         super(props);
@@ -25,42 +24,41 @@ class DefaultDriverEdit extends Component {
                 salary: '',
                 vehicleRegisterNo: ''
             },
-            data:[],
+            data: [],
             alert: false,
             message: '',
-            severity: ''
+            severity: '',
+            file: null
         }
     }
 
+    handleFile(e) {
+        let file = e.target.files[0];
+        this.setState({
+            file: file
+        })
+    }
 
     componentDidMount() {
         let link = window.location.href
-
         regNo = String(link.slice(36));
-
-        console.log(regNo)
         this.initializee(regNo)
-
     }
 
     async initializee(regNo) {
         let res = await GetService.fetchAllDrivers();
 
-        for (let i=0 ;i<res.data.data.length;i++){
-            if (res.data.data[i].id=== regNo){
+        for (let i = 0; i < res.data.data.length; i++) {
+            if (res.data.data[i].id === regNo) {
 
-                console.log(res.data.data[i])
                 this.setState({
-
                     data: res.data.data[i]
                 })
-
 
             }
         }
 
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
@@ -71,22 +69,40 @@ class DefaultDriverEdit extends Component {
         const {classes} = this.props;
 
         const onFinish = async values => {
-
             this.state.formData.id = regNo
-            console.log('edit button clicked!!')
-            /*console.log(values)*/
 
+            const formData = new FormData();
+            formData.append(
+                "myFile",
+                this.state.file,
+                this.state.file.name
+            );
+
+            let res = await PostService.createPostDriverImage(formData);
+
+            if (res.status === 201) {
+                saveUser()
+            } else {
+                this.setState({
+                    alert: true,
+                    message: 'Post created Unsuccesfully!',
+                    severity: 'error'
+                })
+                saveUser()
+            }
+        }
+
+        const saveUser = async values => {
             let response = await EditService.createEditDriver(this.state.formData);
-            if (response.status === 201) {
+            if (response.status === 200) {
                 this.setState({
                     alert: true,
                     message: 'Post created succesfully!',
                     severity: 'success'
                 })
-
-                setTimeout(()=>{
+                setTimeout(() => {
                     message.success('Driver Update Success!!')
-                },2000);
+                }, 2000);
             } else {
                 this.setState({
                     alert: true,
@@ -94,9 +110,9 @@ class DefaultDriverEdit extends Component {
                     severity: 'error'
                 })
 
-                setTimeout(()=>{
+                setTimeout(() => {
                     message.error('Driver Update Unsuccessful!!')
-                },2000);
+                }, 2000);
             }
         }
 
@@ -106,14 +122,10 @@ class DefaultDriverEdit extends Component {
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
-
                         </div>
                     </div>
                 </div>
-
 
                 <Row justify={"center"}>
                     <Col lg={12} sm={24}>
@@ -121,7 +133,7 @@ class DefaultDriverEdit extends Component {
                             <h3>Edit Driver</h3>
 
                             <label>Id</label>
-                            <h3 >{regNo}</h3>
+                            <h3>{regNo}</h3>
 
                             <Form.Item name={"address"} label={"Address"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.address}
@@ -170,14 +182,10 @@ class DefaultDriverEdit extends Component {
 
                             <Form.Item name={"nic"} label={"Nic"} rules={[{required: true}]}>
                                 <Input accept="image/*"
-                                       className={classes.input}
                                        id="upload-profile-image"
                                        type="file"
-                                       value={this.state.formData.nic}
                                        onChange={(e) => {
-                                           let formData = this.state.formData
-                                           formData.nic = e.target.value
-                                           this.setState({ formData })
+                                           this.handleFile(e)
                                        }}/>
                             </Form.Item>
 
@@ -207,12 +215,9 @@ class DefaultDriverEdit extends Component {
                 <div className="content" style={style.content}>
                     {classes.children}
                 </div>
-
             </div>
-
         )
     }
-
 }
 
 export default withStyles(style)(DefaultDriverEdit)

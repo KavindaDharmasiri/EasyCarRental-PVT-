@@ -11,43 +11,63 @@ class DefaultReserve extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
             data: [],
+            dataDri: [],
             id: ''
         }
-
     }
 
-
-    async loadData() {
+    async getCars() {
         let res = await GetService.fetchAllCar();
 
+        let temp = [];
+
+        for (let i = 0; i < res.data.data.length; i++) {
+            for (let y = 0; y < this.state.dataDri.length; y++) {
+                if (res.data.data[i].vehicleRegistrationNo === this.state.dataDri[y].vehicleRegistrationNo) {
+                    temp.push(res.data.data[i])
+                    break
+                }
+            }
+        }
+
         this.setState({
-            data: res.data.data
+            data: temp
         })
 
+        temp = []
 
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
         }
     }
 
+    async loadData() {
+        let res = await GetService.fetchAllDrivers();
+
+        this.setState({
+            dataDri: res.data.data
+        })
+
+        if (res.status === 200) {
+            this.getCars()
+
+        } else {
+            console.log("fetching error: " + res)
+            this.getCars()
+        }
+    }
+
     async componentDidMount() {
         let link = window.location.href
-
         regNo = String(link.slice(37));
-
         this.setState({
             id: regNo
         })
-
         this.loadData()
-
-
     }
 
     render() {
@@ -69,7 +89,6 @@ class DefaultReserve extends Component {
                     </div>
                 </div>
 
-
                 <div>
                     <div style={style.appcontainer}>
                         <table style={style.table}>
@@ -85,7 +104,9 @@ class DefaultReserve extends Component {
                             <tbody>
                             {cars.map((car) =>
                                 <tr>
-                                    <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image1)} alt=""/></td>
+                                    <td style={style.td}><img style={style.imgTable}
+                                                              src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + car.image1)}
+                                                              alt=""/></td>
                                     <td style={style.td}>{car.brand}</td>
                                     <td style={style.td}>{car.type}</td>
                                     <td style={style.td}><Link
@@ -100,16 +121,13 @@ class DefaultReserve extends Component {
 
                 </div>
 
-
                 <div className="content" style={style.content}>
                     {classes.children}
                 </div>
 
             </div>
-
         )
     }
-
 }
 
 export default withStyles(style)(DefaultReserve)

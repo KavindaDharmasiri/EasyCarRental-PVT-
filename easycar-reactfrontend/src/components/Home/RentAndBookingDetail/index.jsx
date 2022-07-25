@@ -4,12 +4,11 @@ import {style} from "./style";
 import {Divider} from "antd";
 import GetService from "../../../services/GetService";
 
-let idd = 'sfd'
+let regNo;
 
 class DefaultRentAndBooking extends Component {
     constructor(props) {
         super(props);
-
 
         this.state = {
             data: [],
@@ -20,60 +19,46 @@ class DefaultRentAndBooking extends Component {
 
     async loadData() {
         let res = await GetService.fetchAllRent();
-        console.log("row response: " + JSON.stringify(res.data.data[0].name))
         let temp = [];
         for (let i = 0; i < res.data.data.length; i++) {
-            if (res.data.data[i].userId === idd) {
-
+            if (res.data.data[i].userId === regNo) {
                 temp.push(res.data.data[i])
-
             }
         }
 
-        console.log(temp.length)
         this.setState({
-            data : temp
+            data: temp
         })
 
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
         }
     }
 
-
-    async loadReserData(){
+    async loadReserData() {
         let res = await GetService.fetchAllReservation();
-        console.log("row response: " + JSON.stringify(res.data.data[0].name))
         let temp = [];
         for (let i = 0; i < res.data.data.length; i++) {
-            if (res.data.data[i].userId === idd) {
-
+            if (res.data.data[i].userId === regNo) {
                 temp.push(res.data.data[i])
-
             }
         }
 
-        console.log(temp.length)
         this.setState({
-            dataTwo : temp
+            dataTwo: temp
         })
 
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
         }
     }
-
 
     async componentDidMount() {
         let link = window.location.href
-
-        let regNo;
         regNo = String(link.slice(40));
 
         this.setState({
@@ -82,7 +67,6 @@ class DefaultRentAndBooking extends Component {
 
         this.loadData()
         this.loadReserData()
-
 
     }
 
@@ -95,14 +79,11 @@ class DefaultRentAndBooking extends Component {
 
         return (
 
-
             <div style={style.body}>
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
                             <h3>{this.state.id}</h3>
                         </div>
                     </div>
@@ -115,11 +96,10 @@ class DefaultRentAndBooking extends Component {
                         <thead>
                         <tr>
                             <th style={style.th}>PaymentId</th>
-                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Date</th>
                             <th style={style.th}>Type</th>
                             <th style={style.th}>vehicleRegisterNo</th>
                             <th style={style.th}>total</th>
-
                         </tr>
 
                         </thead>
@@ -127,7 +107,7 @@ class DefaultRentAndBooking extends Component {
                         {rents.map((rent) =>
                             <tr>
                                 <td style={style.td}>{rent.paymentId}</td>
-                                <td style={style.td}>{rent.releventDate}</td>
+                                <td style={style.td}>{rent.date}</td>
                                 <td style={style.td}>{rent.type}</td>
                                 <td style={style.td}>{rent.vehicleRegistrationNo}</td>
                                 <td style={style.td}>{rent.total}</td>
@@ -148,11 +128,10 @@ class DefaultRentAndBooking extends Component {
                         <tr>
                             <th style={style.th}>PaymentId</th>
                             <th style={style.th}>DriverId</th>
-                            <th style={style.th}>ReleventDate</th>
+                            <th style={style.th}>Date</th>
                             <th style={style.th}>Type</th>
                             <th style={style.th}>vehicleRegisterNo</th>
                             <th style={style.th}>total</th>
-
                         </tr>
 
                         </thead>
@@ -161,7 +140,7 @@ class DefaultRentAndBooking extends Component {
                             <tr>
                                 <td style={style.td}>{reservation.paymentId}</td>
                                 <td style={style.td}>{reservation.driverId}</td>
-                                <td style={style.td}>{reservation.releventDate}</td>
+                                <td style={style.td}>{reservation.date}</td>
                                 <td style={style.td}>{reservation.type}</td>
                                 <td style={style.td}>{reservation.vehicleRegistrationNo}</td>
                                 <td style={style.td}>{reservation.total}</td>
@@ -175,7 +154,6 @@ class DefaultRentAndBooking extends Component {
 
         )
     }
-
 }
 
 export default withStyles(style)(DefaultRentAndBooking)

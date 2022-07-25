@@ -2,8 +2,7 @@ import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import {Col, Form, Input, Row} from 'antd';
-import {Link, useLocation} from "react-router-dom";
-
+import {Link} from "react-router-dom";
 import car_img from "../../../assets/img/car.jpg";
 
 class PaymentModel extends Component {
@@ -11,24 +10,27 @@ class PaymentModel extends Component {
         super(props);
     }
 
+
+    componentDidMount() {
+
+    }
+
     render() {
-        const { match } = this.props;
+        const {match} = this.props;
 
         const queryParams = new URLSearchParams(window.location.search)
         const name = queryParams.get("name")
 
         let b = false;
-        if(name=="Booking"){
-            b=true;
+        if (name == "Booking") {
+            b = true;
         }
 
         const renderAuthButton2 = () => {
             if (b) {
-                return <button style={style.btn2}><Link to={'/bookingCarDet'} style={style.aTag}>Cancel</Link></button>
-
+                return <button style={style.btn2}><Link to={'/bookingCar'} style={style.aTag}>Cancel</Link></button>
             } else {
-
-                return <button style={style.btn2}><Link to={'/resCarDet'} style={style.aTag}>Cancel</Link></button>
+                return <button style={style.btn2}><Link to={'/reservation'} style={style.aTag}>Cancel</Link></button>
             }
         }
 
@@ -36,9 +38,7 @@ class PaymentModel extends Component {
             if (b) {
                 return <button style={style.btn1}><Link to={'/bookingCar'} style={style.aTag}>Submit</Link></button>
 
-
             } else {
-
                 return <button style={style.btn1}><Link to={'/reservation'} style={style.aTag}>Submit</Link></button>
 
             }
@@ -67,7 +67,6 @@ class PaymentModel extends Component {
                             </Form.Item>
 
                             <Form.Item name={"date"} label={"Date"} rules={[{require: true}]}>
-
                                 <Input style={style.input}/>
                             </Form.Item>
 
@@ -75,16 +74,13 @@ class PaymentModel extends Component {
                                 <Input style={style.input}/>
                             </Form.Item>
 
-
                             {renderAuthButton()}
                             {renderAuthButton2()}
-
 
                         </Form>
                     </Col>
                 </Row>
             </div>
-
 
         )
     }

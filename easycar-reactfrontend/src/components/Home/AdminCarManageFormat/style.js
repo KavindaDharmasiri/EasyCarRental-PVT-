@@ -95,7 +95,7 @@ export const style = {
 
     imgTable: {
         height: "60px",
-        width:"60px"
+        width: "60px"
     }
 
 

@@ -4,7 +4,7 @@ class GetService {
 
     fetchAllCar = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/car/getAll')
+            axios.get('car/getAll')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -18,7 +18,7 @@ class GetService {
 
     fetchAllDrivers = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/driver/getAll')
+            axios.get('driver/getAll')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -31,7 +31,7 @@ class GetService {
 
     fetchAllReservation = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/Reservation/getAll')
+            axios.get('Reservation/getAll')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -44,7 +44,7 @@ class GetService {
 
     fetchAllRent = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/Rent/getAll')
+            axios.get('Rent/getAll')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -57,7 +57,7 @@ class GetService {
 
     fetchAllPayments = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/payment/getAll')
+            axios.get('payment/getAll')
                 .then((res) => {
                     return resolve(res)
                 })
@@ -70,7 +70,7 @@ class GetService {
 
     fetchOneCar = async (id) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/car/id='+id)
+            axios.get('car/id='+id)
                 .then((res) => {
                     return resolve(res)
                 })
@@ -84,7 +84,7 @@ class GetService {
 
     getAllUser = async () => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('http://localhost:8080/easycarRental_war/api/v1/user/getAll')
+            axios.get('user/getAll')
                 .then((res) => {
                     return resolve(res)
                 })

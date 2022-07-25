@@ -1,15 +1,15 @@
 export const style = {
-    login:{
+    login: {
         fontFamily: "'Montserrat', sans-serif",
         backgroundColor: "black",
-        minHeight:"100vh",
+        minHeight: "100vh",
 
     },
 
 
-    colourLable:{
+    colourLable: {
         color: "white",
-        opacity:"0.6"
+        opacity: "0.6"
     },
 
     btn1: {
@@ -21,40 +21,40 @@ export const style = {
         marginRight: "20px"
     },
 
-    loginForm:{
+    loginForm: {
         backgroundColor: "#1F1F1F",
         position: "relative",
         right: "30px",
         padding: "25px"
     },
 
-    input:{
-        backgroundColor:"#333333",
+    input: {
+        backgroundColor: "#333333",
         border: "none",
         color: "white",
         opacity: "0.5"
     },
 
-    carImage:{
+    carImage: {
         position: "relative"
     },
 
-    loginLogo:{
+    loginLogo: {
         color: "white",
-        position:"absolute",
-        left:"0",
+        position: "absolute",
+        left: "0",
         right: "0",
-        textAlign:"center",
-        top:"60%",
-        bottom:"50%",
+        textAlign: "center",
+        top: "60%",
+        bottom: "50%",
         transform: "translateY(-60% , -50%)",
-        fontsize:"45px",
-        opacity:"0.2",
+        fontsize: "45px",
+        opacity: "0.2",
     },
 
-    aTag:{
-        color:"white",
-        opacity:"0.5"
+    aTag: {
+        color: "white",
+        opacity: "0.5"
     }
 
 

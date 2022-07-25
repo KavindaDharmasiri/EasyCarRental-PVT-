@@ -15,10 +15,7 @@ export const style = {
 
     },
 
-    content: {
-
-
-    },
+    content: {},
 
     body: {
         backgroundColor: "#FFFFFF",
@@ -27,48 +24,46 @@ export const style = {
 
     dashboardImg: {
         height: "180px",
-        width:"auto",
+        width: "auto",
         borderRadius: "5px",
     },
 
-    imgContent:{
+    imgContent: {},
 
-    },
-
-    paragraph:{
-      margin : "5px",
-      textAlign:"left",
-      padding: "0",
+    paragraph: {
+        margin: "5px",
+        textAlign: "left",
+        padding: "0",
         fontFamily: "'Montserrat', sans-serif"
     },
 
 
-    rightAlign:{
+    rightAlign: {
         textAlign: "right"
     },
 
-    col:{
-        display:"flex"
+    col: {
+        display: "flex"
     },
 
-    marginImg:{
+    marginImg: {
         margin: "10px"
     },
 
-    car:{
+    car: {
         borderRadius: "5px"
     },
 
 
-    login:{
+    login: {
         fontFamily: "'Montserrat', sans-serif",
 
     },
 
 
-    colourLable:{
+    colourLable: {
         color: "white",
-        opacity:"0.6"
+        opacity: "0.6"
     },
 
     btn1: {
@@ -80,68 +75,68 @@ export const style = {
         marginRight: "20px"
     },
 
-    loginForm:{
+    loginForm: {
         backgroundColor: "#1F1F1F",
         position: "relative",
         right: "30px",
         padding: "25px",
-        top:"-15px",
+        top: "-15px",
         fontFamily: "'Montserrat', sans-serif"
 
     },
 
-    input:{
-        backgroundColor:"#333333",
+    input: {
+        backgroundColor: "#333333",
         border: "none",
         color: "white",
         opacity: "0.5"
     },
 
-    carImage:{
+    carImage: {
         position: "relative"
     },
 
-    loginLogo:{
+    loginLogo: {
         color: "white",
-        position:"absolute",
-        left:"0",
+        position: "absolute",
+        left: "0",
         right: "0",
-        textAlign:"center",
-        top:"60%",
-        bottom:"50%",
+        textAlign: "center",
+        top: "60%",
+        bottom: "50%",
         transform: "translateY(-60% , -50%)",
-        fontsize:"45px",
-        opacity:"0.2",
+        fontsize: "45px",
+        opacity: "0.2",
     },
 
-    aTag:{
-        color:"white",
-        opacity:"0.5"
+    aTag: {
+        color: "white",
+        opacity: "0.5"
     },
 
-    image:{
-        padding:"15px",
+    image: {
+        padding: "15px",
         height: "40%",
         width: "40%"
     },
 
-    separate:{
+    separate: {
         display: "flex",
         position: "relative"
     },
 
-    upH1:{
-        position:"relative",
-        textAlign:"center",
-        padding:"20px"
+    upH1: {
+        position: "relative",
+        textAlign: "center",
+        padding: "20px"
     },
 
-    secondLbl:{
-        color:"white",
-        opacity:"0.5"
+    secondLbl: {
+        color: "white",
+        opacity: "0.5"
     },
 
-    divider:{
+    divider: {
         position: "relative",
         right: "30px"
     }

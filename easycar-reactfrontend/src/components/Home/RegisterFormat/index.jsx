@@ -2,11 +2,10 @@ import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import car_img from "../../../assets/img/car.jpg";
-import {Col, Form, Input, Row , message} from 'antd'
+import {Col, Form, Input, message, Row} from 'antd'
 import {Link} from "react-router-dom";
 import PostService from "../../../services/PostService";
 import GetService from "../../../services/GetService";
-import axios from "axios";
 
 class DefaultRegister extends Component {
     constructor(props) {
@@ -26,95 +25,73 @@ class DefaultRegister extends Component {
             alert: false,
             message: '',
             severity: '',
-            data:[],
-            newId:'',
-            file:null
+            data: [],
+            newId: '',
+            file: null
         }
     }
 
     async getAllUsers() {
         let res = await GetService.getAllUser();
 
-        console.log('get')
-                console.log(res.data.data[res.data.data.length-1])
-                this.setState({
-                    data: res.data.data[res.data.data.length-1]
-                })
+        this.setState({
+            data: res.data.data[res.data.data.length - 1]
+        })
 
         if (res.status === 200) {
-
-            this.setId(res.data.data[res.data.data.length-1])
+            this.setId(res.data.data[res.data.data.length - 1])
 
         } else {
             console.log("fetching error: " + res)
 
-            this.setId(res.data.data[res.data.data.length-1])
-
+            this.setId(res.data.data[res.data.data.length - 1])
         }
     }
 
-    setId(tr){
+    setId(tr) {
         let tempone = this.state.data.id
-        console.log('temp int')
+
         let teId = 'U001';
 
         this.setState({
-            newId:teId
+            newId: teId
         })
 
         let temp = parseInt(tempone.slice(1))
 
-        console.log(temp)
-
-
-
-        if(temp<1){
+        if (temp < 1) {
             teId = 'U001'
-        }else if (temp<9){
-            teId = 'U00'+(temp+1)
-        }else if (temp<99){
-            teId = 'U0'+(temp+1)
-        }else if (temp<999){
-            teId = 'U'+(temp+1)
-        }else{
+        } else if (temp < 9) {
+            teId = 'U00' + (temp + 1)
+        } else if (temp < 99) {
+            teId = 'U0' + (temp + 1)
+        } else if (temp < 999) {
+            teId = 'U' + (temp + 1)
+        } else {
             teId = 'U001'
         }
 
         this.setState({
-            newId:teId
+            newId: teId
         })
-        console.log('teId')
-        console.log(teId)
-
     }
 
     componentDidMount() {
-         this.getAllUsers()
+        this.getAllUsers()
     }
 
-    handleFile(e){
-
+    handleFile(e) {
         let file = e.target.files[0];
-        console.log(file);
         this.setState({
-            file:file
+            file: file
         })
-
-
     }
 
 
     render() {
         const {classes} = this.props;
 
-
-        console.log('state')
-        console.log(this.state.newId)
-
-
-        const saveUser = async values =>  {
-
-            console.log('user save')
+        const saveUser = async values => {
             let response = await PostService.createPostUser(this.state.formData);
             if (response.status === 201) {
 
@@ -127,7 +104,6 @@ class DefaultRegister extends Component {
                 setTimeout(() => {
                     message.success('Register Success!!')
                 }, 2000);
-
 
             } else {
                 this.setState({
@@ -144,24 +120,19 @@ class DefaultRegister extends Component {
 
         const onFinish = async values => {
 
-            this.state.formData.id=this.state.newId
-
-            console.log('save button clicked!!')
+            this.state.formData.id = this.state.newId
 
             const formData = new FormData();
-
             formData.append(
                 "myFile",
                 this.state.file,
                 this.state.file.name
             );
 
-            let res= await PostService.createPostUserImage(formData);
+            let res = await PostService.createPostUserImage(formData);
 
             if (res.status === 201) {
-
                 saveUser()
-
 
             } else {
                 this.setState({
@@ -172,10 +143,7 @@ class DefaultRegister extends Component {
 
                 saveUser()
             }
-
         };
-
-
 
         return (
             <div style={style.login}>
@@ -183,10 +151,6 @@ class DefaultRegister extends Component {
 
                     <Col lg={16} style={style.carImage}>
 
-
-
-
-                        {/*<img src={require("F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/uploads/aa.png")} alt=""/>*/}
                         <img src={car_img} alt=""/>
                         <h1 style={style.loginLogo}>Easy Car Rental(PVT)</h1>
 
@@ -198,7 +162,7 @@ class DefaultRegister extends Component {
 
                             <hr/>
 
-                            <Form.Item name={"id"} label={"Id"} >
+                            <Form.Item name={"id"} label={"Id"}>
 
                                 <h3>{this.state.newId}</h3>
 
@@ -209,7 +173,7 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.name = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -218,7 +182,7 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.address = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -227,7 +191,7 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.age = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -246,7 +210,7 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.type = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -256,7 +220,7 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.contact = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -266,14 +230,9 @@ class DefaultRegister extends Component {
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.password = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
-
-
-                            {/*<Form.Item name={"cPWord"} label={"Cpnfirm Password"} rules={[{required:true}]}>
-                                <Input/>
-                            </Form.Item>*/}
 
                             <button style={style.btn1}>Register</button>
 
@@ -285,10 +244,8 @@ class DefaultRegister extends Component {
                 </Row>
 
             </div>
-
         )
     }
-
 }
 
 export default withStyles(style)(DefaultRegister)

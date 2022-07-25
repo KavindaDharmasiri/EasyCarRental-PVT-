@@ -15,17 +15,14 @@ class FirstHomePage extends Component {
 
     render() {
         const {classes} = this.props;
-        return (
 
+        return (
 
             <div style={style.body}>
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
-
                             <div style={style.butn}>
                                 <button style={style.btn1}><Link to={'/register'}>Register</Link></button>
                                 <button style={style.btn1}><Link to={'/login'}>Login</Link></button>
@@ -35,7 +32,6 @@ class FirstHomePage extends Component {
                     </div>
                 </div>
 
-
                 <Carousel>
                     <Carousel.Item interval={1000}>
                         <img
@@ -44,7 +40,7 @@ class FirstHomePage extends Component {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h3>Welcome to Easy Car Rental (PVT)</h3>
+                            <h3 style={style.font}>Welcome to Easy Car Rental (PVT)</h3>
                             <p>since 2022</p>
                         </Carousel.Caption>
                     </Carousel.Item>
@@ -55,7 +51,7 @@ class FirstHomePage extends Component {
                             alt="Second slide"
                         />
                         <Carousel.Caption>
-                            <h3>We have big car collection</h3>
+                            <h3 style={style.font}>We have big car collection</h3>
                             <p>since 2022.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
@@ -66,18 +62,19 @@ class FirstHomePage extends Component {
                             alt="Third slide"
                         />
                         <Carousel.Caption>
-                            <h3>always you can hire vehicle</h3>
+                            <h3 style={style.font}>always you can hire vehicle</h3>
                             <p>since 2022.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
 
+                <div style={style.footer}>
+                    <h3 style={style.font}>Easy Car Rental (PVT)</h3>
+                </div>
             </div>
-
 
         )
     }
-
 }
 
 export default withStyles(style)(FirstHomePage)

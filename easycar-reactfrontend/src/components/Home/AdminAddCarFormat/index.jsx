@@ -9,7 +9,6 @@ class DefaultCarAdd extends Component {
     constructor(props) {
         super(props);
 
-
         this.state = {
             formData: {
                 registrationNo: '',
@@ -28,124 +27,90 @@ class DefaultCarAdd extends Component {
             alert: false,
             message: '',
             severity: '',
-            data:[],
-            newId:'',
-            fileOne:null,
-            fileTwo:null,
-            fileThree:null,
-            fileFour:null
+            data: [],
+            newId: '',
+            fileOne: null,
+            fileTwo: null,
+            fileThree: null,
+            fileFour: null
         }
     }
-
 
     async getAllCars() {
         let res = await GetService.fetchAllCar();
 
-        console.log('get')
-        console.log(res.data.data[res.data.data.length-1])
         this.setState({
-            data: res.data.data[res.data.data.length-1]
+            data: res.data.data[res.data.data.length - 1]
         })
 
-
-
         if (res.status === 200) {
-
-            this.setId(res.data.data[res.data.data.length-1])
+            this.setId(res.data.data[res.data.data.length - 1])
 
         } else {
             console.log("fetching error: " + res)
 
-            this.setId(res.data.data[res.data.data.length-1])
-
+            this.setId(res.data.data[res.data.data.length - 1])
         }
     }
 
-    setId(tr){
+    setId(tr) {
         let tempone = this.state.data.registrationNo
-        console.log('temp int')
         let teId = 'C001';
 
         this.setState({
-            newId:teId
+            newId: teId
         })
 
         let temp = parseInt(tempone.slice(1))
 
-        console.log(temp)
-
-
-
-        if(temp<1){
+        if (temp < 1) {
             teId = 'C001'
-        }else if (temp<9){
-            teId = 'C00'+(temp+1)
-        }else if (temp<99){
-            teId = 'C0'+(temp+1)
-        }else if (temp<999){
-            teId = 'C'+(temp+1)
-        }else{
+        } else if (temp < 9) {
+            teId = 'C00' + (temp + 1)
+        } else if (temp < 99) {
+            teId = 'C0' + (temp + 1)
+        } else if (temp < 999) {
+            teId = 'C' + (temp + 1)
+        } else {
             teId = 'C001'
         }
 
         this.setState({
-            newId:teId
+            newId: teId
         })
-        console.log('teId')
-        console.log(teId)
-
     }
-
 
     componentDidMount() {
         this.getAllCars()
     }
 
-    handleFileOne(e){
-
+    handleFileOne(e) {
         let file = e.target.files[0];
-        console.log(file);
         this.setState({
-            fileOne:file
+            fileOne: file
         })
+    }
 
+    handleFileTwo(e) {
+        let file = e.target.files[0];
+        this.setState({
+            fileTwo: file
+        })
+    }
 
+    handleFileThree(e) {
+        let file = e.target.files[0];
+        this.setState({
+            fileThree: file
+        })
     }
 
 
-    handleFileTwo(e){
-
+    handleFileFour(e) {
         let file = e.target.files[0];
-        console.log(file);
         this.setState({
-            fileTwo:file
+            fileFour: file
         })
-
-
-    }
-
-
-    handleFileThree(e){
-
-        let file = e.target.files[0];
-        console.log(file);
-        this.setState({
-            fileThree:file
-        })
-
-
-    }
-
-
-    handleFileFour(e){
-
-        let file = e.target.files[0];
-        console.log(file);
-        this.setState({
-            fileFour:file
-        })
-
-
     }
 
     render() {
@@ -160,9 +125,9 @@ class DefaultCarAdd extends Component {
                     severity: 'success'
                 })
 
-                setTimeout(()=>{
+                setTimeout(() => {
                     message.success('Car Adding Success!!')
-                },2000);
+                }, 2000);
 
             } else {
                 this.setState({
@@ -171,9 +136,9 @@ class DefaultCarAdd extends Component {
                     severity: 'error'
                 })
 
-                setTimeout(()=>{
+                setTimeout(() => {
                     message.error('Car Adding Unsuccessful!!')
-                },2000);
+                }, 2000);
             }
         }
 
@@ -187,16 +152,10 @@ class DefaultCarAdd extends Component {
                 this.state.fileFour.name
             );
 
-            console.log('save button clicked!!')
-            /*console.log(values)*/
-
-
-            let res= await PostService.createPostCarImageFour(formDataThree);
+            let res = await PostService.createPostCarImageFour(formDataThree);
 
             if (res.status === 201) {
-
                 saveCar()
-
 
             } else {
                 this.setState({
@@ -204,10 +163,8 @@ class DefaultCarAdd extends Component {
                     message: 'Post created Unsuccesfully!',
                     severity: 'error'
                 })
-
                 saveCar()
             }
-
         }
 
 
@@ -220,17 +177,10 @@ class DefaultCarAdd extends Component {
                 this.state.fileThree.name
             );
 
-            console.log('save button clicked!!')
-            /*console.log(values)*/
-
-
-            let res= await PostService.createPostCarImageThree(formDataTwo);
+            let res = await PostService.createPostCarImageThree(formDataTwo);
 
             if (res.status === 201) {
-
                 saveFourImg()
-
-
             } else {
                 this.setState({
                     alert: true,
@@ -240,7 +190,6 @@ class DefaultCarAdd extends Component {
 
                 saveFourImg()
             }
-
         }
 
 
@@ -254,16 +203,10 @@ class DefaultCarAdd extends Component {
                 this.state.fileTwo.name
             );
 
-            console.log('save button clicked!!')
-            /*console.log(values)*/
-
-
-            let res= await PostService.createPostCarImageTwo(formDataOne);
+            let res = await PostService.createPostCarImageTwo(formDataOne);
 
             if (res.status === 201) {
-
                 saveThreeImg()
-
 
             } else {
                 this.setState({
@@ -274,18 +217,12 @@ class DefaultCarAdd extends Component {
 
                 saveThreeImg()
             }
-
-
         }
 
 
-        const onFinish = async values =>  {
+        const onFinish = async values => {
 
-            this.state.formData.registrationNo=this.state.newId
-
-
-            console.log('save button clicked!!')
-            /*console.log(values)*/
+            this.state.formData.registrationNo = this.state.newId
 
             const formData = new FormData();
 
@@ -295,16 +232,10 @@ class DefaultCarAdd extends Component {
                 this.state.fileOne.name
             );
 
-            console.log('save button clicked!!')
-            /*console.log(values)*/
-
-
-            let res= await PostService.createPostCarImageOne(formData);
+            let res = await PostService.createPostCarImageOne(formData);
 
             if (res.status === 201) {
-
                 saveTwoImg()
-
 
             } else {
                 this.setState({
@@ -315,11 +246,6 @@ class DefaultCarAdd extends Component {
 
                 saveTwoImg()
             }
-
-
-
-
-
         };
 
 
@@ -329,10 +255,7 @@ class DefaultCarAdd extends Component {
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
-
                         </div>
                     </div>
                 </div>
@@ -343,34 +266,34 @@ class DefaultCarAdd extends Component {
                         <Form style={style.bs1} layout={"vertical"} onFinish={onFinish}>
                             <h3>Add New Car</h3>
 
-                          <Form.Item name={"registerNo"} label={"Registration No"} >
+                            <Form.Item name={"registerNo"} label={"Registration No"}>
                                 <h3>{this.state.newId}</h3>
                             </Form.Item>
 
-                            <Form.Item name={"brand"} label={"Brand"} rules={[{required:true}]}>
+                            <Form.Item name={"brand"} label={"Brand"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.brand}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.brand = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"color"} label={"Color"} rules={[{required:true}]}>
+                            <Form.Item name={"color"} label={"Color"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.colour}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.colour = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"fuel"} label={"Fuel"} rules={[{required:true}]}>
+                            <Form.Item name={"fuel"} label={"Fuel"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.fuel}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.fuel = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -410,39 +333,39 @@ class DefaultCarAdd extends Component {
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"noOfPassenger"} label={"No of Passenger"} rules={[{required:true}]}>
+                            <Form.Item name={"noOfPassenger"} label={"No of Passenger"} rules={[{required: true}]}>
                                 <Input type={"number"} value={this.state.formData.noOfPassenger}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.noOfPassenger = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"priceForHour"} label={"Price for hour"} rules={[{required:true}]}>
+                            <Form.Item name={"priceForHour"} label={"Price for hour"} rules={[{required: true}]}>
                                 <Input type={"number"} value={this.state.formData.priceForRent}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.priceForRent = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"transmition"} label={"Transmition"} rules={[{required:true}]}>
+                            <Form.Item name={"transmition"} label={"Transmition"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.transmission}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.transmission = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
-                            <Form.Item name={"type"} label={"Type"} rules={[{required:true}]}>
+                            <Form.Item name={"type"} label={"Type"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.type}
                                        onChange={(e) => {
                                            let formData = this.state.formData
                                            formData.type = e.target.value
-                                           this.setState({ formData })
+                                           this.setState({formData})
                                        }}/>
                             </Form.Item>
 
@@ -459,7 +382,6 @@ class DefaultCarAdd extends Component {
 
         )
     }
-
 }
 
 export default withStyles(style)(DefaultCarAdd)

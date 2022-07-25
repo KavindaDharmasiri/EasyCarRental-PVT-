@@ -20,35 +20,27 @@ class Default extends Component {
 
     componentDidMount() {
         let link = window.location.href
-
         regNo = String(link.slice(35));
-
         this.setState({
             id: regNo
         })
-        console.log(regNo)
-
     }
 
     render() {
         const {classes} = this.props;
         let re = this.state.id
-        console.log('id')
-        console.log(re)
+
         return (
 
             <div style={style.body}>
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
                             <h3>{re}</h3>
                         </div>
                     </div>
                 </div>
-
 
                 <div>
                     <Row justify={"center"}>
@@ -69,7 +61,6 @@ class Default extends Component {
                                                     Now</Link></button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +80,6 @@ class Default extends Component {
                                                     Now</Link></button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -109,25 +99,20 @@ class Default extends Component {
                                                     Now</Link></button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                         </Col>
                     </Row>
                 </div>
 
-
                 <div className="content" style={style.content}>
                     {classes.children}
                 </div>
-
             </div>
 
         )
     }
-
 }
 
 export default withStyles(style)(Default)

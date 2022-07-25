@@ -4,7 +4,7 @@ class EditService {
     createEditDriver = async (data) => {
         /*console.log("form data: " + id)*/
         const promise = new Promise((resolve, reject) => {
-            axios.put('http://localhost:8080/easycarRental_war/api/v1/driver/edit',data)   //10s
+            axios.put('driver/edit',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -20,7 +20,7 @@ class EditService {
     createEditCar = async (data) => {
         /*console.log("form data: " + id)*/
         const promise = new Promise((resolve, reject) => {
-            axios.put('http://localhost:8080/easycarRental_war/api/v1/car/edit',data)   //10s
+            axios.put('car/edit',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)

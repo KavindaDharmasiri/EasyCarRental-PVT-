@@ -1,13 +1,12 @@
 import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
-import {Col, Row} from 'antd';
-import book_logo from "../../../assets/img/book.jpg";
+import {message} from 'antd';
 import {Link} from "react-router-dom";
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 import GetService from "../../../services/GetService";
-let imgURL = "F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war";
-let uu = "unnamed.png"
+import {confirmAlert} from "react-confirm-alert";
+import DeleteService from "../../../services/DeleteService";
 
 class DefaultDriverManage extends Component {
     constructor(props) {
@@ -20,15 +19,12 @@ class DefaultDriverManage extends Component {
 
     async loadData() {
         let res = await GetService.fetchAllDrivers();
-        console.log("row response: " + JSON.stringify(res.data.data[0].name))
 
         this.setState({
             data: res.data.data
         })
 
-
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
@@ -36,19 +32,45 @@ class DefaultDriverManage extends Component {
     }
 
     async componentDidMount() {
-
         this.loadData()
-
-
     }
 
+    deleteDriver(value) {
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure you want to delete ' + value + ' Driver',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: async () => {
+                        let res = await DeleteService.deleteDriver(value);
+
+                        if (res.status === 200) {
+
+                            setTimeout(() => {
+                                message.error('Driver Deleted!!')
+                            }, 2000);
+
+                            const newWindow = window.open('http://localhost:3000/carManage', '_self', 'noopener,noreferrer')
+                            if (newWindow) newWindow.opener = null
+
+                        } else {
+                            console.log("fetching error: " + res)
+                        }
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('you Click No')
+                }
+            ]
+        });
+    }
 
     render() {
         const {classes} = this.props;
 
         const drivers = this.state.data
-
-        console.log(drivers)
 
         return (
 
@@ -56,48 +78,50 @@ class DefaultDriverManage extends Component {
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
                             <button style={style.btn1}><Link to={'/driverAdd'}>Add New Driver</Link></button>
                         </div>
                     </div>
                 </div>
 
-
                 <div style={style.appcontainer}>
-                    <table  style={style.table}>
+                    <table style={style.table}>
                         <thead>
                         <tr>
-
-                            <th  style={style.th}>id</th>
-                            <th  style={style.th}>address</th>
+                            <th style={style.th}>id</th>
+                            <th style={style.th}>address</th>
                             <th style={style.th}>age</th>
                             <th style={style.th}>contact</th>
-                            <th  style={style.th}>experience</th>
-                            <th  style={style.th}>name</th>
-                            <th  style={style.th}>nic</th>
-                            <th  style={style.th}>salary</th>
-                            <th  style={style.th}>vehicleRegisterNo</th>
-                            <th  style={style.th}>Action</th>
+                            <th style={style.th}>experience</th>
+                            <th style={style.th}>name</th>
+                            <th style={style.th}>nic</th>
+                            <th style={style.th}>salary</th>
+                            <th style={style.th}>vehicleRegisterNo</th>
+                            <th style={style.th}>Action</th>
                         </tr>
 
                         </thead>
                         <tbody>
                         {drivers.map((driver) =>
                             <tr>
-
                                 <td style={style.td}>{driver.id}</td>
-                                {/*<td style={style.td}><img src={book_logo} alt=""/></td>*/}
                                 <td style={style.td}>{driver.address}</td>
                                 <td style={style.td}>{driver.age}</td>
                                 <td style={style.td}>{driver.contact}</td>
                                 <td style={style.td}>{driver.experience}</td>
                                 <td style={style.td}>{driver.name}</td>
-                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+driver.nic)} alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable}
+                                                          src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + driver.nic)}
+                                                          alt=""/></td>
                                 <td style={style.td}>{driver.salary}</td>
                                 <td style={style.td}>{driver.vehicleRegisterNo}</td>
-                                <td style={style.td}><Link to={'/driverEdit?id='+driver.id} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link><Link to={'/deleteDriver?id='+driver.id}><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                <td style={style.td}><Link to={'/driverEdit?id=' + driver.id}><EditOutlined
+                                    style={{color: 'green', cursor: "pointer"}} className={'mr-3'}/></Link>
+                                    <button type={'button'} onClick={() => {
+                                        this.deleteDriver(driver.id)
+                                    }}><DeleteOutlined style={{color: 'red', cursor: "pointer"}} className={'mr-3'}/>
+                                    </button>
+                                </td>
                             </tr>
                         )}
 
@@ -110,10 +134,8 @@ class DefaultDriverManage extends Component {
                 </div>
 
             </div>
-
         )
     }
-
 }
 
 export default withStyles(style)(DefaultDriverManage)

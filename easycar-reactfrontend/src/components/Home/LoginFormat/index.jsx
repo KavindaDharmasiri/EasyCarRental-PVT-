@@ -1,17 +1,10 @@
-import {Component, Fragment} from "react";
+import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import car_img from "../../../assets/img/car.jpg";
-
 import {Col, Form, Input, message, Row} from 'antd'
 import GetService from "../../../services/GetService";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link, Routes
-} from "react-router-dom";
-
+import {Link} from "react-router-dom";
 
 let pass;
 let nam;
@@ -19,19 +12,18 @@ let iddd;
 let typ;
 
 function load() {
-    if(typ === "Admin"){
-        setTimeout(()=>{
+    if (typ === "Admin") {
+        setTimeout(() => {
             message.success('Admin Login Success!!')
-        },2000);
+        }, 2000);
 
         const newWindow = window.open('http://localhost:3000/adminHome?id=' + iddd, '_self', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
-    }else {
+    } else {
 
-        setTimeout(()=>{
+        setTimeout(() => {
             message.success('User Login Success!!')
-        },2000);
-
+        }, 2000);
 
         const newWindow = window.open('http://localhost:3000/firstPage?id=' + iddd, '_self', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
@@ -41,7 +33,6 @@ function load() {
 class DefaultLogin extends Component {
     constructor(props) {
         super(props);
-
     }
 
     submit = () => {
@@ -51,15 +42,13 @@ class DefaultLogin extends Component {
     async buttonHandler() {
 
         let res = await GetService.getAllUser();
-
         for (let i = 0; i < res.data.data.length; i++) {
             if (res.data.data[i].name === nam) {
-                 if (res.data.data[i].password === pass) {
-                    iddd= res.data.data[i].id
-                     typ = res.data.data[i].type
+                if (res.data.data[i].password === pass) {
+                    iddd = res.data.data[i].id
+                    typ = res.data.data[i].type
 
-
-                     load()
+                    load()
                 }
             }
         }
@@ -69,12 +58,10 @@ class DefaultLogin extends Component {
         } else {
 
         }
-
     }
 
     render() {
         const {classes} = this.props;
-
 
         const changeevent = event => {
             pass = event.target.value
@@ -92,7 +79,6 @@ class DefaultLogin extends Component {
                     <Col lg={16} style={style.carImage}>
                         <img src={car_img} alt=""/>
                         <h1 style={style.loginLogo}>Easy Car Rental(PVT)</h1>
-
                     </Col>
 
                     <Col lg={8}>
@@ -104,11 +90,11 @@ class DefaultLogin extends Component {
                                 <Input style={style.input} onChange={changeEventTwo}/>
                             </Form.Item>
 
-                            <Form.Item name={"password"} label={"password"}  rules={[{require: true}]}>
+                            <Form.Item name={"password"} label={"password"} rules={[{require: true}]}>
                                 <Input type={"password"} style={style.input} onChange={changeevent}/>
                             </Form.Item>
 
-                            <button style={style.btn1} ><Link to={this.buttonHandler()}>Login</Link></button>
+                            <button style={style.btn1}><Link to={this.buttonHandler()}>Login</Link></button>
                             <br/>
                             <Link style={style.aTag} to='/register'>Click Here to Register</Link>
                         </Form>
@@ -118,7 +104,6 @@ class DefaultLogin extends Component {
 
         )
     }
-
 }
 
 export default withStyles(style)(DefaultLogin)

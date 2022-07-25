@@ -12,12 +12,11 @@ export const style = {
 
     header: {
         padding: "10px",
+        backgroundColor: "#5EBDDA"
 
     },
 
-    content: {
-
-    },
+    content: {},
 
     body: {
         backgroundColor: "#FFFFFF"
@@ -25,48 +24,55 @@ export const style = {
 
     dashboardImg: {
         height: "180px",
-        width:"auto",
+        width: "auto",
         borderRadius: "5px",
     },
 
-    imgContent:{
+    imgContent: {},
 
-    },
-
-    paragraph:{
-      margin : "5px",
-      textAlign:"left",
-      padding: "0",
+    paragraph: {
+        margin: "5px",
+        textAlign: "left",
+        padding: "0",
         fontFamily: "'Montserrat', sans-serif"
     },
 
-    btn1:{
+    btn1: {
         boxShadow: "none",
-        backgroundColor: "white",
+        backgroundColor: "black",
         color: "#00008B",
         border: "1px solid #00008B",
         fontFamily: "'Montserrat', sans-serif",
-        marginRight: "20px"
+        marginRight: "20px",
+        borderRadius: "20px",
+
     },
 
-    rightAlign:{
+    rightAlign: {
         textAlign: "right"
     },
 
-    col:{
-        display:"flex"
+    col: {
+        display: "flex"
     },
 
-    marginImg:{
+    marginImg: {
         margin: "10px"
     },
 
-    car:{
+    car: {
         borderRadius: "5px"
     },
 
-    butn: {
-
+    butn: {},
+    footer: {
+        height: "50px",
+        textAlign: "center",
+        backgroundColor: "#5EBDDA",
+        color: "white"
+    },
+    font: {
+        color: "white"
     }
 
 

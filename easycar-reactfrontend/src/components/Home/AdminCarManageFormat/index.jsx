@@ -2,10 +2,12 @@ import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import GetService from "../../../services/GetService";
-import {GridColDef} from "@mui/x-data-grid";
-import {EditOutlined , DeleteOutlined} from "@ant-design/icons";
+import {confirmAlert} from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import {DeleteOutlined, EditOutlined} from "@ant-design/icons";
 import {Link} from "react-router-dom";
-
+import DeleteService from "../../../services/DeleteService";
+import {message} from "antd";
 
 class DefaultCarManage extends Component {
     constructor(props) {
@@ -14,22 +16,16 @@ class DefaultCarManage extends Component {
         this.state = {
             data: []
         }
-
     }
-
-
 
     async loadData() {
         let res = await GetService.fetchAllCar();
-        console.log("row response: " + JSON.stringify(res.data.data[0].brand))
 
         this.setState({
             data: res.data.data
         })
 
-
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
@@ -37,18 +33,44 @@ class DefaultCarManage extends Component {
     }
 
     async componentDidMount() {
-
         this.loadData()
+    }
 
+    deleteCar(value) {
+        confirmAlert({
+            title: 'Confirm to delete',
+            message: 'Are you sure you want to delete ' + value + ' car',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: async () => {
+                        let res = await DeleteService.deleteCarCar(value);
 
+                        if (res.status === 200) {
+                            setTimeout(() => {
+                                message.error('Car Deleted!!')
+                            }, 2000);
+
+                            const newWindow = window.open('http://localhost:3000/carManage', '_self', 'noopener,noreferrer')
+                            if (newWindow) newWindow.opener = null
+
+                        } else {
+                            console.log("fetching error: " + res)
+                        }
+                    }
+                },
+                {
+                    label: 'No',
+                    onClick: () => alert('you Click No')
+                }
+            ]
+        });
     }
 
     render() {
         const {classes} = this.props;
 
         const cars = this.state.data
-
-
 
         return (
 
@@ -66,22 +88,22 @@ class DefaultCarManage extends Component {
                 </div>
 
                 <div style={style.appcontainer}>
-                    <table  style={style.table}>
+                    <table style={style.table}>
                         <thead>
                         <tr>
-                            <th  style={style.th}>registrationNo</th>
+                            <th style={style.th}>registrationNo</th>
                             <th style={style.th}>brand</th>
                             <th style={style.th}>type</th>
-                            <th  style={style.th}>transmission</th>
-                            <th  style={style.th}>colour</th>
-                            <th  style={style.th}>noOfPassenger</th>
-                            <th  style={style.th}>fuel</th>
-                            <th  style={style.th}>image1</th>
-                            <th  style={style.th}>image2</th>
-                            <th  style={style.th}>image3</th>
-                            <th  style={style.th}>image4</th>
-                            <th  style={style.th}>priceForRent</th>
-                            <th  style={style.th}>Action</th>
+                            <th style={style.th}>transmission</th>
+                            <th style={style.th}>colour</th>
+                            <th style={style.th}>noOfPassenger</th>
+                            <th style={style.th}>fuel</th>
+                            <th style={style.th}>image1</th>
+                            <th style={style.th}>image2</th>
+                            <th style={style.th}>image3</th>
+                            <th style={style.th}>image4</th>
+                            <th style={style.th}>priceForRent</th>
+                            <th style={style.th}>Action</th>
                         </tr>
 
                         </thead>
@@ -95,16 +117,26 @@ class DefaultCarManage extends Component {
                                 <td style={style.td}>{car.colour}</td>
                                 <td style={style.td}>{car.noOfPassenger}</td>
                                 <td style={style.td}>{car.fuel}</td>
-                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image1)} alt=""/></td>
-                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image2)} alt=""/></td>
-                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image3)} alt=""/></td>
-                                <td style={style.td}><img style={style.imgTable} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+car.image4)} alt=""/></td>
-                                {/*<td style={style.td}>{car.image1}</td>
-                                <td style={style.td}>{car.image2}</td>
-                                <td style={style.td}>{car.image3}</td>
-                                <td style={style.td}>{car.image4}</td>*/}
+                                <td style={style.td}><img style={style.imgTable}
+                                                          src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + car.image1)}
+                                                          alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable}
+                                                          src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + car.image2)}
+                                                          alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable}
+                                                          src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + car.image3)}
+                                                          alt=""/></td>
+                                <td style={style.td}><img style={style.imgTable}
+                                                          src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/' + car.image4)}
+                                                          alt=""/></td>
                                 <td style={style.td}>{car.priceForRent}</td>
-                                <td style={style.td}><Link to={'/carEdit?id='+car.registrationNo} ><EditOutlined style={{color:'green' , cursor:"pointer"}} className={'mr-3'}/></Link><Link to={'/deleteCar?id='+car.registrationNo} ><DeleteOutlined style={{color:'red' , cursor:"pointer"}} className={'mr-3'}/></Link></td>
+                                <td style={style.td}><Link to={'/carEdit?id=' + car.registrationNo}><EditOutlined
+                                    style={{color: 'green', cursor: "pointer"}} className={'mr-3'}/></Link>
+                                    <button type={'button'} onClick={() => {
+                                        this.deleteCar(car.registrationNo)
+                                    }}><DeleteOutlined style={{color: 'red', cursor: "pointer"}} className={'mr-3'}/>
+                                    </button>
+                                </td>
                             </tr>
                         )}
 
@@ -120,7 +152,6 @@ class DefaultCarManage extends Component {
 
         )
     }
-
 }
 
 export default withStyles(style)(DefaultCarManage)

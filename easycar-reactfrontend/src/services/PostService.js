@@ -6,7 +6,7 @@ class PostService {
     createPostUser = async (data) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/user/save', data)   //10s
+            axios.post('user/save', data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -21,7 +21,7 @@ class PostService {
 
     createPostDriver = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/driver/save',data)   //10s
+            axios.post('driver/save',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -37,7 +37,7 @@ class PostService {
     createPostCar = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/car/save',data)   //10s
+            axios.post('car/save',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -53,7 +53,7 @@ class PostService {
     createPostUserImage = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/user/img',data)   //10s
+            axios.post('user/img',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -69,7 +69,7 @@ class PostService {
     createPostDriverImage = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/driver/img',data)   //10s
+            axios.post('driver/img',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -86,7 +86,57 @@ class PostService {
     createPostCarImageFour = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/car/imgFour',data)   //10s
+            axios.post('car/imgFour',data)   //10s
+                .then((res) => {
+                    console.log(res)
+                    return resolve(res)
+                })
+                .catch((er) => {
+                    console.log('error: ' + er);
+                    return resolve(er)
+                })
+        })
+        return await promise
+    }
+
+
+    createPostPayment = async ( data ) => {
+
+        const promise = new Promise((resolve, reject) => {
+            axios.post('payment/save',data)   //10s
+                .then((res) => {
+                    console.log(res)
+                    return resolve(res)
+                })
+                .catch((er) => {
+                    console.log('error: ' + er);
+                    return resolve(er)
+                })
+        })
+        return await promise
+    }
+
+
+    createPostRent = async ( data ) => {
+
+        const promise = new Promise((resolve, reject) => {
+            axios.post('Rent/save',data)   //10s
+                .then((res) => {
+                    console.log(res)
+                    return resolve(res)
+                })
+                .catch((er) => {
+                    console.log('error: ' + er);
+                    return resolve(er)
+                })
+        })
+        return await promise
+    }
+
+    createPostReservation = async ( data ) => {
+
+        const promise = new Promise((resolve, reject) => {
+            axios.post('Reservation/save',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -102,15 +152,10 @@ class PostService {
 
 
 
-
-
-
-
-
     createPostCarImageThree = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/car/imgThree',data)   //10s
+            axios.post('car/imgThree',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -126,7 +171,7 @@ class PostService {
     createPostCarImageTwo = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/car/imgTwo',data)   //10s
+            axios.post('car/imgTwo',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)
@@ -142,7 +187,7 @@ class PostService {
     createPostCarImageOne = async ( data ) => {
 
         const promise = new Promise((resolve, reject) => {
-            axios.post('http://localhost:8080/easycarRental_war/api/v1/car/imgOne',data)   //10s
+            axios.post('car/imgOne',data)   //10s
                 .then((res) => {
                     console.log(res)
                     return resolve(res)

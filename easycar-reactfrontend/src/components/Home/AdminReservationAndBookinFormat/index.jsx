@@ -4,7 +4,6 @@ import {style} from "./style";
 import {Divider} from "antd";
 import GetService from "../../../services/GetService";
 
-
 class DefaultAdminRentAndBooking extends Component {
     constructor(props) {
         super(props);
@@ -15,18 +14,14 @@ class DefaultAdminRentAndBooking extends Component {
         }
     }
 
-
     async loadData() {
         let res = await GetService.fetchAllReservation();
-        console.log("row response: " + JSON.stringify(res.data.data[0].name))
 
         this.setState({
             data1: res.data.data
         })
 
-
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
@@ -35,15 +30,12 @@ class DefaultAdminRentAndBooking extends Component {
 
     async loadrentData() {
         let res = await GetService.fetchAllRent();
-        console.log("row response: " + JSON.stringify(res.data.data[0].name))
 
         this.setState({
             data2: res.data.data
         })
 
-
         if (res.status === 200) {
-
 
         } else {
             console.log("fetching error: " + res)
@@ -51,13 +43,9 @@ class DefaultAdminRentAndBooking extends Component {
     }
 
     async componentDidMount() {
-
         this.loadData()
         this.loadrentData()
-
-
     }
-
 
     render() {
         const {classes} = this.props;
@@ -65,17 +53,13 @@ class DefaultAdminRentAndBooking extends Component {
         const reservations = this.state.data1
         const rents = this.state.data2
 
-
         return (
 
             <div style={style.body}>
                 <div style={style.bs1}>
                     <div className="header" style={style.header}>
                         <div className="d-flex justify-content-between">
-
                             <h1 style={style.h1}>Easy Car Rental(PVT)</h1>
-
-
                         </div>
                     </div>
                 </div>
@@ -126,7 +110,6 @@ class DefaultAdminRentAndBooking extends Component {
                             <th style={style.th}>Type</th>
                             <th style={style.th}>VehicleRegistrationNo</th>
                             <th style={style.th}>Total</th>
-
                         </tr>
 
                         </thead>
@@ -145,12 +128,9 @@ class DefaultAdminRentAndBooking extends Component {
                         </tbody>
                     </table>
                 </div>
-
             </div>
-
         )
     }
-
 }
 
 export default withStyles(style)(DefaultAdminRentAndBooking)
