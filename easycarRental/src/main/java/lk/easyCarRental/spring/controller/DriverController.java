@@ -71,6 +71,7 @@ public class DriverController {
 
     @PutMapping(path = "/edit",produces = MediaType.APPLICATION_JSON_VALUE)
     public lk.easyCarRental.spring.util.ResponseUtil updateDriver(@RequestBody lk.easyCarRental.spring.dto.DriverDTO driver) {
+        driver.setNic(temp);
         driverService.updateDriver(driver);
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Updated", null);
     }

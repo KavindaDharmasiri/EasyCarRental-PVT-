@@ -17,10 +17,11 @@ import lombok.ToString;
 @Data
 @ToString
 public class ReservationDTO {
+    private String userId;
     private String driverId;
     private String vehicleRegistrationNo;
     private String paymentId;
     private double total;
     private String type;
-    private String releventDate;
+    private String date;
 }

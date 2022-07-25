@@ -52,6 +52,10 @@ public class CarController {
 
     @PutMapping(path = "/edit",produces = MediaType.APPLICATION_JSON_VALUE)
     public lk.easyCarRental.spring.util.ResponseUtil updateCar(@RequestBody lk.easyCarRental.spring.dto.CarDTO car) {
+        car.setImage1(tempOne);
+        car.setImage2(tempTwo);
+        car.setImage3(tempThree);
+        car.setImage4(tempFour);
         carService.updateCar(car);
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Updated", null);
     }

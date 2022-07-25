@@ -25,8 +25,8 @@ public class RentController {
     }
 
     @ResponseStatus(HttpStatus.CREATED) //201
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public lk.easyCarRental.spring.util.ResponseUtil saveRent(@ModelAttribute lk.easyCarRental.spring.dto.RentDTO rent) {
+    @PostMapping(path = "/save" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public lk.easyCarRental.spring.util.ResponseUtil saveRent(@RequestBody lk.easyCarRental.spring.dto.RentDTO rent) {
         rentService.saveRent(rent);
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Save", null);
     }

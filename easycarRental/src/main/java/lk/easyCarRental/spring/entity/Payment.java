@@ -23,10 +23,8 @@ import javax.persistence.Id;
 public class Payment {
     @Id
     private String paymentId;
+    private String userId;
     private String vehicleRegistrationNo;
     private double total;
-    private double downPayment;
-    private double onGoingPayment;
-    private String releventDate;
-    private String success;
+    private String date;
 }

@@ -25,8 +25,8 @@ public class ReservationController {
     }
 
     @ResponseStatus(HttpStatus.CREATED) //201
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public lk.easyCarRental.spring.util.ResponseUtil saveReservation(@ModelAttribute lk.easyCarRental.spring.dto.ReservationDTO reservation) {
+    @PostMapping(path = "/save" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public lk.easyCarRental.spring.util.ResponseUtil saveReservation(@RequestBody lk.easyCarRental.spring.dto.ReservationDTO reservation) {
         reservationService.saveReservation(reservation);
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Save", null);
     }

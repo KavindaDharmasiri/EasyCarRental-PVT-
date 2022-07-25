@@ -25,8 +25,9 @@ public class PaymentController {
     }
 
     @ResponseStatus(HttpStatus.CREATED) //201
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public lk.easyCarRental.spring.util.ResponseUtil savePayment(@ModelAttribute lk.easyCarRental.spring.dto.PaymentDTO payment) {
+    @PostMapping( path =  "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public lk.easyCarRental.spring.util.ResponseUtil savePayment(@RequestBody lk.easyCarRental.spring.dto.PaymentDTO payment) {
+        System.out.println(payment);
         paymentService.savePayment(payment);
         return new lk.easyCarRental.spring.util.ResponseUtil(200, "Save", null);
     }
