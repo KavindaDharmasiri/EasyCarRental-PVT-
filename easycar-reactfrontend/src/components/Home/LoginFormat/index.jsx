@@ -35,11 +35,7 @@ class DefaultLogin extends Component {
         super(props);
     }
 
-    submit = () => {
-        return <button><Link>confirm</Link></button>
-    };
-
-    async buttonHandler() {
+    buttonHandler = async () =>  {
 
         let res = await GetService.getAllUser();
         for (let i = 0; i < res.data.data.length; i++) {
@@ -49,9 +45,14 @@ class DefaultLogin extends Component {
                     typ = res.data.data[i].type
 
                     load()
+                    break
                 }
             }
         }
+
+        setTimeout(() => {
+            message.error('Please check User Name And Password Again!!')
+        }, 2000);
 
         if (res.status === 201) {
 
@@ -82,7 +83,7 @@ class DefaultLogin extends Component {
                     </Col>
 
                     <Col lg={8}>
-                        <Form layout={"vertical"} style={style.loginForm} onChange={this.buttonHandler}>
+                        <Form layout={"vertical"} style={style.loginForm}>
                             <h1 style={style.colourLable}>Login</h1>
                             <hr/>
 
@@ -94,7 +95,7 @@ class DefaultLogin extends Component {
                                 <Input type={"password"} style={style.input} onChange={changeevent}/>
                             </Form.Item>
 
-                            <button style={style.btn1}><Link to={this.buttonHandler()}>Login</Link></button>
+                            <button style={style.btn1} type={"button"} onClick={this.buttonHandler} >Login</button>
                             <br/>
                             <Link style={style.aTag} to='/register'>Click Here to Register</Link>
                         </Form>

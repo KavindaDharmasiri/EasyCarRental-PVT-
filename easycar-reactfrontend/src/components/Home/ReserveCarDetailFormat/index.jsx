@@ -208,6 +208,9 @@ class DefaultReservationDetail extends Component {
                 message.success('button Open Success!!')
             }, 2000);
 
+            const newWindow = window.open('http://localhost:3000/paymentmdl?name=Reservation', '_self', 'noopener,noreferrer')
+            if (newWindow) newWindow.opener = null
+
         } else {
             this.setState({
                 alert: true,
@@ -328,12 +331,8 @@ class DefaultReservationDetail extends Component {
                                         <label>Total : <label id={'ttlId'} style={style.secondLbl}>total
                                             /-</label></label><br/>
 
-                                        <button style={style.btn1} onClick={this.setpayment}>Open Book Button</button>
+                                        <button style={style.btn1} onClick={this.setpayment}>Reserve Car</button>
                                         <br/>
-                                        <button style={style.btn1} id={"payBtn"}><Link
-                                            to={'/paymentmdl?name=Reservation'}>Book
-                                            Car</Link>
-                                        </button>
 
                                     </Form>
                                 </Col>

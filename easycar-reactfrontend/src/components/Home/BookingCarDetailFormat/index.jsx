@@ -175,6 +175,9 @@ class DefaultBookingDetail extends Component {
                 message.success('button Open Success!!')
             }, 2000);
 
+            const newWindow = window.open('http://localhost:3000/paymentmdl?name=Booking', '_self', 'noopener,noreferrer')
+            if (newWindow) newWindow.opener = null
+
         } else {
             this.setState({
                 alert: true,
@@ -262,7 +265,6 @@ class DefaultBookingDetail extends Component {
                                         <label>Vehicle register no : <label
                                             style={style.secondLbl}>{cars.registrationNo}</label></label><br/>
                                         <label>Brand : <label style={style.secondLbl}>{cars.brand}</label></label><br/>
-                                        {/*<img style={style.image} src={require('F:/apache-tomcat-8.5.76-windows-x64/apache-tomcat-8.5.76/webapps/easycarRental_war/'+cars.image2)} alt=""/>*/}
                                         <label>Color : <label style={style.secondLbl}>{cars.colour}</label></label><br/>
                                         <label>Fuel : <label style={style.secondLbl}>{cars.fuel}</label></label><br/>
                                         <label>No of Passengers : <label
@@ -295,12 +297,8 @@ class DefaultBookingDetail extends Component {
                                             /-</label></label><br/>
 
 
-                                        <button style={style.btn1} onClick={this.setpayment}>Open Book Button</button>
+                                        <button style={style.btn1} onClick={this.setpayment}>Book Car</button>
                                         <br/>
-                                        <button style={style.btn1} id={"payBtn"}><Link
-                                            to={'/paymentmdl?name=Booking'}>Book
-                                            Car</Link>
-                                        </button>
 
                                     </Form>
                                 </Col>
