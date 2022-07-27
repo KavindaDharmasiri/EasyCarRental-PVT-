@@ -96,6 +96,10 @@ export const style = {
     imgTable: {
         height: "60px",
         width: "60px"
+    },
+    btnTra:{
+        backgroundColor:"transparent",
+        border:"transparent"
     }
 
 

@@ -1,7 +1,7 @@
 import {Component} from "react";
-import Default from "../../components/Home/HomeFormat";
-import DefaultBooking from "../../components/Home/BookingCarFormat";
-import DefaultReserve from "../../components/Home/ReserveCarFormat";
+import Default from "../../components/Pages/HomeFormat";
+import DefaultBooking from "../../components/Pages/BookingCarFormat";
+import DefaultReserve from "../../components/Pages/ReserveCarFormat";
 
 class BookingCar extends Component {
     constructor(props) {

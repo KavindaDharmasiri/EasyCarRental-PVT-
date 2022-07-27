@@ -61,6 +61,11 @@ export const style = {
         borderRadius: "5px"
     },
 
+    divider: {
+        position: "relative",
+        right: "30px"
+    },
+
 
     appcontainer: {
         display: "flex",
@@ -92,14 +97,6 @@ export const style = {
         gap: "5px",
         fontSize: "28px"
     },
-    imgTable: {
-        height: "60px",
-        width: "60px"
-    },
-    btnTra:{
-        backgroundColor:"transparent",
-        border:"transparent"
-    }
 
 
 }

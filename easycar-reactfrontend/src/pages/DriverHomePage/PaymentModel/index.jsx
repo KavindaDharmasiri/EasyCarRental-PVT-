@@ -1,5 +1,5 @@
 import {Component, Fragment} from "react";
-import DefaultLogin from "../../components/Pages/LoginFormat";
+import PaymentModel from "../../components/common/PaymentModel";
 
 class Login extends Component {
     constructor(props) {
@@ -8,8 +8,8 @@ class Login extends Component {
 
     render() {
         return (
-            <DefaultLogin>
-            </DefaultLogin>
+            <PaymentModel>
+            </PaymentModel>
         )
     }
 }

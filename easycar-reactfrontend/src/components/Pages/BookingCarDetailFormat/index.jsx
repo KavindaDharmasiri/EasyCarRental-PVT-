@@ -75,9 +75,14 @@ class DefaultBookingDetail extends Component {
     }
 
     setId(tr) {
-        let tempone = tr.paymentId
+        console.log('temp')
         let teId = 'P001';
+        this.setState({
+            newId: teId
+        })
+        let tempone = tr.paymentId
 
+        console.log(teId)
         this.setState({
             newId: teId
         })
@@ -96,6 +101,7 @@ class DefaultBookingDetail extends Component {
             teId = 'P001'
         }
 
+        console.log(teId)
         this.setState({
             newId: teId
         })

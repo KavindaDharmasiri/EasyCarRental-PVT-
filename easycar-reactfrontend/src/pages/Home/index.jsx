@@ -1,5 +1,5 @@
 import {Component, Fragment} from "react";
-import Default from "../../components/Home/HomeFormat";
+import Default from "../../components/Pages/HomeFormat";
 
 class HomePage extends Component {
     constructor(props) {

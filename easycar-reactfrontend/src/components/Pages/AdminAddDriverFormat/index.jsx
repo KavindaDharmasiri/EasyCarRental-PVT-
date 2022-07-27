@@ -17,6 +17,7 @@ class DefaultDriverAdd extends Component {
                 contact: '',
                 experience: '',
                 name: '',
+                email:'',
                 nic: "nic",
                 salary: '',
                 vehicleRegisterNo: ''
@@ -27,6 +28,7 @@ class DefaultDriverAdd extends Component {
             formData3: {
                 id: '',
                 name: '',
+                email:'',
                 address: '',
                 age: '',
                 contact: '',
@@ -38,11 +40,27 @@ class DefaultDriverAdd extends Component {
             message: '',
             severity: '',
             data: [],
+            data2:[],
             newId: '',
             file: null
         }
     }
 
+    async getAllCars() {
+        let res = await GetService.fetchAllCar();
+
+        this.setState({
+            data2: res.data.data
+        })
+
+        if (res.status === 200) {
+
+
+        } else {
+            console.log("fetching error: " + res)
+
+        }
+    }
 
     async getAllDrivers() {
         let res = await GetService.fetchAllDrivers();
@@ -90,6 +108,7 @@ class DefaultDriverAdd extends Component {
 
     componentDidMount() {
         this.getAllDrivers()
+        this.getAllCars()
     }
 
     handleFile(e) {
@@ -110,6 +129,7 @@ class DefaultDriverAdd extends Component {
                 formData3: {
                     id: this.state.formData.id,
                     name: this.state.formData.name,
+                    email:this.state.formData.email,
                     address: this.state.formData.address,
                     age: this.state.formData.age,
                     contact: this.state.formData.contact,
@@ -231,6 +251,8 @@ class DefaultDriverAdd extends Component {
             }
         }
 
+        let cars = this.state.data2
+
         return (
 
             <div style={style.body}>
@@ -296,6 +318,15 @@ class DefaultDriverAdd extends Component {
                                        }}/>
                             </Form.Item>
 
+                            <Form.Item name={"email"} label={"Email"} rules={[{required: true}]}>
+                                <Input value={this.state.formData.email}
+                                       onChange={(e) => {
+                                           let formData = this.state.formData
+                                           formData.email = e.target.value
+                                           this.setState({formData})
+                                       }}/>
+                            </Form.Item>
+
                             <Form.Item name={"nic"} label={"Nic"} rules={[{required: true}]}>
                                 <Input accept="image/*"
                                        id="upload-profile-image"
@@ -315,6 +346,23 @@ class DefaultDriverAdd extends Component {
                             </Form.Item>
 
                             <Form.Item name={"vehicelNo"} label={"Own Vehicle Register No"} rules={[{required: true}]}>
+                                <select style={{backgroundColor:"cadetblue" , width:"100%"}}  onChange={(e) => {
+                                    let formData = this.state.formData
+                                    formData.vehicleRegisterNo = e.target.value
+                                    this.setState({formData})
+                                }}>
+                                    {cars.map((car)=>
+                                        <option value={car.registrationNo}>{car.registrationNo}</option>
+                                    )}
+
+                                    {/*<option value={"Admin"}>Admin</option>
+                                    <option selected value={"User"}>User</option>*/}
+
+                                </select>
+                            </Form.Item>
+
+{/*
+                            <Form.Item name={"vehicelNo"} label={"Own Vehicle Register No"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.vehicleRegisterNo}
                                        onChange={(e) => {
                                            let formData = this.state.formData
@@ -322,6 +370,7 @@ class DefaultDriverAdd extends Component {
                                            this.setState({formData})
                                        }}/>
                             </Form.Item>
+*/}
 
                             <Form.Item name={"password"} label={"Password"} rules={[{required: true}]}>
                                 <Input value={this.state.formData2.password} type={"password"}

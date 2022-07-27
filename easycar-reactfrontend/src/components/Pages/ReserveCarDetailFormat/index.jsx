@@ -78,13 +78,14 @@ class DefaultReservationDetail extends Component {
     }
 
     setId(tr) {
-        let tempone = tr.paymentId
 
         let teId = 'P001';
 
         this.setState({
             newId: teId
         })
+
+        let tempone = tr.paymentId
 
         let temp = parseInt(tempone.slice(1))
 

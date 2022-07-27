@@ -1,7 +1,7 @@
 import {Component, Fragment} from "react";
-import DefaultAdminRentAndBooking from "../../components/Home/AdminReservationAndBookinFormat";
-import CheckFinalReport from "../../components/Home/CheckFinalResultFormat";
-import FirstHomePage from "../../components/Home/FirstHomePageFormt";
+import DefaultAdminRentAndBooking from "../../components/Pages/AdminReservationAndBookinFormat";
+import CheckFinalReport from "../../components/Pages/CheckFinalResultFormat";
+import FirstHomePage from "../../components/Pages/FirstHomePageFormt";
 
 class HomePage extends Component {
     constructor(props) {

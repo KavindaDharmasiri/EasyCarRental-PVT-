@@ -2,7 +2,7 @@ import {Component} from "react";
 import {withStyles} from "@mui/styles";
 import {style} from "./style";
 import {Link} from "react-router-dom";
-import {BookTwoTone} from "@ant-design/icons";
+import {RightCircleOutlined} from "@ant-design/icons";
 import GetService from "../../../services/GetService";
 
 let regNo;
@@ -81,8 +81,8 @@ class DefaultBooking extends Component {
                                     <td style={style.td}>{car.brand}</td>
                                     <td style={style.td}>{car.type}</td>
                                     <td style={style.td}><Link
-                                        to={'/bookingCarDet?id=' + car.registrationNo + '&idtwo=' + re}><BookTwoTone
-                                        style={{color: 'red', cursor: "pointer"}} className={'mr-3'}/></Link></td>
+                                        to={'/bookingCarDet?id=' + car.registrationNo + '&idtwo=' + re}><RightCircleOutlined
+                                        style={{color: 'green', cursor: "pointer" , fontSize:"30px"}} className={'mr-3'}/></Link></td>
                                 </tr>
                             )}
 

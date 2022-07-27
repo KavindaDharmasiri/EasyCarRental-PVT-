@@ -19,6 +19,7 @@ import PaymentMdl from "../pages/PaymentModel";
 import BookingAndReservationAdmin from "../pages/AdminReservationAndBooking";
 import FinalReport from "../pages/CheckFinalResult";
 import FirstPage from "../pages/FirstHomePage";
+import DriverHome from "../pages/DriverHomePage";
 import 'antd/dist/antd.css';
 
 
@@ -43,6 +44,7 @@ function App() {
             <Route path='paymentmdl' element={<PaymentMdl/>}/>
             <Route path='adminpanelbookingandreservation' element={<BookingAndReservationAdmin/>}/>
             <Route path='finalReport' element={<FinalReport/>}/>
+                <Route path='driverHome' element={<DriverHome/>}/>
 
             <Route path='/' element={<FirstPage/>}/>
 

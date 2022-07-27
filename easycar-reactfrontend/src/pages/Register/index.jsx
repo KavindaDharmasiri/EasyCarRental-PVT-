@@ -1,5 +1,5 @@
 import {Component, Fragment} from "react";
-import DefaultRegister from "../../components/Home/RegisterFormat";
+import DefaultRegister from "../../components/Pages/RegisterFormat";
 
 class Register extends Component {
     constructor(props) {

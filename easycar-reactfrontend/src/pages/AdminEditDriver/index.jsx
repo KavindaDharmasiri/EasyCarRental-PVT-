@@ -1,9 +1,9 @@
 import {Component, Fragment} from "react";
-import Default from "../../components/Home/HomeFormat";
-import DefaultAdmin from "../../components/Home/AdminDashBoardFormat";
-import DefaultCarAdd from "../../components/Home/AdminAddCarFormat";
-import DefaultEditCar from "../../components/Home/AdminEditCarFormat";
-import DefaultDriverEdit from "../../components/Home/AdminEditDriverFormat";
+import Default from "../../components/Pages/HomeFormat";
+import DefaultAdmin from "../../components/Pages/AdminDashBoardFormat";
+import DefaultCarAdd from "../../components/Pages/AdminAddCarFormat";
+import DefaultEditCar from "../../components/Pages/AdminEditCarFormat";
+import DefaultDriverEdit from "../../components/Pages/AdminEditDriverFormat";
 
 class HomePage extends Component {
     constructor(props) {

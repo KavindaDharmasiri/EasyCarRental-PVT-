@@ -90,6 +90,7 @@ class DefaultDriverManage extends Component {
                         <tr>
                             <th style={style.th}>id</th>
                             <th style={style.th}>address</th>
+                            <th style={style.th}>email</th>
                             <th style={style.th}>age</th>
                             <th style={style.th}>contact</th>
                             <th style={style.th}>experience</th>
@@ -106,6 +107,7 @@ class DefaultDriverManage extends Component {
                             <tr>
                                 <td style={style.td}>{driver.id}</td>
                                 <td style={style.td}>{driver.address}</td>
+                                <td style={style.td}>{driver.email}</td>
                                 <td style={style.td}>{driver.age}</td>
                                 <td style={style.td}>{driver.contact}</td>
                                 <td style={style.td}>{driver.experience}</td>
@@ -117,7 +119,7 @@ class DefaultDriverManage extends Component {
                                 <td style={style.td}>{driver.vehicleRegisterNo}</td>
                                 <td style={style.td}><Link to={'/driverEdit?id=' + driver.id}><EditOutlined
                                     style={{color: 'green', cursor: "pointer"}} className={'mr-3'}/></Link>
-                                    <button type={'button'} onClick={() => {
+                                    <button type={'button'} style={style.btnTra} onClick={() => {
                                         this.deleteDriver(driver.id)
                                     }}><DeleteOutlined style={{color: 'red', cursor: "pointer"}} className={'mr-3'}/>
                                     </button>

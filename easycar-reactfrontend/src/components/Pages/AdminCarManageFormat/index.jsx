@@ -132,7 +132,7 @@ class DefaultCarManage extends Component {
                                 <td style={style.td}>{car.priceForRent}</td>
                                 <td style={style.td}><Link to={'/carEdit?id=' + car.registrationNo}><EditOutlined
                                     style={{color: 'green', cursor: "pointer"}} className={'mr-3'}/></Link>
-                                    <button type={'button'} onClick={() => {
+                                    <button type={'button'} style={style.btnTra} onClick={() => {
                                         this.deleteCar(car.registrationNo)
                                     }}><DeleteOutlined style={{color: 'red', cursor: "pointer"}} className={'mr-3'}/>
                                     </button>

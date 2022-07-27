@@ -89,7 +89,7 @@ class DefaultAdmin extends Component {
                 </div>
 
 
-                <div>
+                <div >
                     <Row justify={"center"}>
                         <Col style={style.col}>
 

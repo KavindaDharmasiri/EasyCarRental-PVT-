@@ -6,6 +6,7 @@ import {Col, Form, Input, message, Row} from 'antd'
 import {Link} from "react-router-dom";
 import PostService from "../../../services/PostService";
 import GetService from "../../../services/GetService";
+import {ComboBoxComponent} from "@syncfusion/ej2-react-dropdowns";
 
 class DefaultRegister extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class DefaultRegister extends Component {
             formData: {
                 id: '',
                 name: '',
+                email:'',
                 address: '',
                 age: '',
                 contact: '',
@@ -177,6 +179,15 @@ class DefaultRegister extends Component {
                                        }}/>
                             </Form.Item>
 
+                            <Form.Item name={"email"} label={"Email"} rules={[{required: true}]}>
+                                <Input value={this.state.formData.email} type={"email"}
+                                       onChange={(e) => {
+                                           let formData = this.state.formData
+                                           formData.email = e.target.value
+                                           this.setState({formData})
+                                       }}/>
+                            </Form.Item>
+
                             <Form.Item name={"address"} label={"Address"} rules={[{required: true}]}>
                                 <Input value={this.state.formData.address}
                                        onChange={(e) => {
@@ -206,12 +217,15 @@ class DefaultRegister extends Component {
                             </Form.Item>
 
                             <Form.Item name={"type"} label={"Admin/User"} rules={[{required: true}]}>
-                                <Input value={this.state.formData.type}
-                                       onChange={(e) => {
-                                           let formData = this.state.formData
-                                           formData.type = e.target.value
-                                           this.setState({formData})
-                                       }}/>
+                                <select style={{backgroundColor:"cadetblue" , width:"100%"}} onChange={(e) => {
+                                    let formData = this.state.formData
+                                    formData.type = e.target.value
+                                    this.setState({formData})
+                                }}>
+                                    <option value={"Admin"}>Admin</option>
+                                    <option selected value={"User"}>User</option>
+
+                                </select>
                             </Form.Item>
 
 

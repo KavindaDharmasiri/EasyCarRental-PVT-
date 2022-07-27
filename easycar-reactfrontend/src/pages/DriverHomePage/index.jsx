@@ -1,6 +1,7 @@
 import {Component, Fragment} from "react";
 import DefaultAdminRentAndBooking from "../../components/Pages/AdminReservationAndBookinFormat";
 import CheckFinalReport from "../../components/Pages/CheckFinalResultFormat";
+import DriverLogin from "../../components/Pages/DriverHomePage";
 
 class HomePage extends Component {
     constructor(props) {
@@ -9,8 +10,8 @@ class HomePage extends Component {
 
     render() {
         return (
-            <CheckFinalReport>
-            </CheckFinalReport>
+            <DriverLogin>
+            </DriverLogin>
         )
     }
 }
