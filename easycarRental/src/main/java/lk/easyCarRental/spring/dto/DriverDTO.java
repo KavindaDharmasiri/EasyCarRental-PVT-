@@ -21,6 +21,7 @@ import javax.persistence.Column;
 public class DriverDTO {
     private String id;
     private String name;
+    private String email;
     private String address;
     private double salary;
     private int age;

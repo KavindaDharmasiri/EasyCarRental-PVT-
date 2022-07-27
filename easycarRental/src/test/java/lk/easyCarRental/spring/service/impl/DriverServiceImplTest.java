@@ -32,11 +32,11 @@ class DriverServiceImplTest {
     DriverService driverService;
 
     public DriverDTO addOneDriver() {
-        return new DriverDTO("D001", "Ramal", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
+        return new DriverDTO("D001", "Ramal","sad", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
     }
 
     public void addDrivers() {
-        DriverDTO d1 = new DriverDTO("D001", "Ramal", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
+        DriverDTO d1 = new DriverDTO("D001", "Ramal", "sd","Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
         driverService.saveDriver(d1);
 
     }
@@ -77,11 +77,11 @@ class DriverServiceImplTest {
         addDrivers();
 
         assertDoesNotThrow(() -> {
-            driverService.updateDriver(new DriverDTO("D001", "Ramal", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001"));
+            driverService.updateDriver(new DriverDTO("D001", "Ramal","saf", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001"));
         });
 
         assertThrows(RuntimeException.class, () -> {
-            driverService.updateDriver(new DriverDTO("D001", "Ramal", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001"));
+            driverService.updateDriver(new DriverDTO("D001", "Ramal","saf", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001"));
         });
 
 

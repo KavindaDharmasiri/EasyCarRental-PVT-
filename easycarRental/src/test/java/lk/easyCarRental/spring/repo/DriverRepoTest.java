@@ -30,7 +30,7 @@ class DriverRepoTest {
 
     @Test
     public void saveDriver() {
-        Driver driver1 = new Driver("D001", "Dasun", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
+        Driver driver1 = new Driver("D001", "Dasun","asd", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
         driverRepo.save(driver1);
 
     }
@@ -62,7 +62,7 @@ class DriverRepoTest {
     @Test
     public void updateDriver() {
         if (driverRepo.existsById("D009")) {
-            Driver driver1 = new Driver("D001", "Dasuni", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
+            Driver driver1 = new Driver("D001", "Dasuni","asd", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
             driverRepo.save(driver1);
         } else {
             throw new RuntimeException("No Such Driver To Update");
@@ -73,7 +73,7 @@ class DriverRepoTest {
 
     @Test
     public void testDTO() {
-        DriverDTO driverDTO = new DriverDTO("D001", "Ramal", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
+        DriverDTO driverDTO = new DriverDTO("D001", "Ramal","asd", "Panadura", 1000.00, 50, "200005603230", "0768831973", 5, "V001");
 
     }
 

@@ -28,9 +28,6 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new String[]{"/"};
     }
 
-    /*
-     * We need to override this method inorder to set MultipartConfigElement
-     */
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setMultipartConfig(new MultipartConfigElement(System.getProperty("java.io.tmpdir")));

@@ -19,6 +19,15 @@ function load() {
 
         const newWindow = window.open('http://localhost:3000/adminHome?id=' + iddd, '_self', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
+    } else if (typ === "Driver"){
+
+        setTimeout(() => {
+            message.success('Driver Login Success!!')
+        }, 2000);
+
+        const newWindow = window.open('http://localhost:3000/driverHome?id=' + iddd, '_self', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+
     } else {
 
         setTimeout(() => {

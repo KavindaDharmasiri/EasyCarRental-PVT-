@@ -36,6 +36,15 @@ export const style = {
         fontFamily: "'Montserrat', sans-serif"
     },
 
+    paragraph2: {
+        margin: "5px",
+        textAlign: "center",
+        fontsize: "20px",
+        padding: "0",
+        fontWeight: "bold",
+        fontFamily: "'Montserrat', sans-serif"
+    },
+
     btn1: {
         boxShadow: "none",
         backgroundColor: "black",

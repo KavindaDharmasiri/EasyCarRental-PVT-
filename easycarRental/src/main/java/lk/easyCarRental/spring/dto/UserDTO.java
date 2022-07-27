@@ -21,6 +21,7 @@ import javax.persistence.Column;
 public class UserDTO {
     private String id;
     private String name;
+    private String email;
     private String address;
     private int age;
     private String nic;

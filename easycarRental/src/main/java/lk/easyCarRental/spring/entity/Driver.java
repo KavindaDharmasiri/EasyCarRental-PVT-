@@ -25,6 +25,7 @@ public class Driver {
     @Id
     private String id;
     private String name;
+    private String email;
     private String address;
     private double salary;
     private int age;

@@ -21,6 +21,19 @@ class DefaultDriverAdd extends Component {
                 salary: '',
                 vehicleRegisterNo: ''
             },
+            formData2: {
+                password: ''
+            },
+            formData3: {
+                id: '',
+                name: '',
+                address: '',
+                age: '',
+                contact: '',
+                nic: 'sad',
+                password: '',
+                type: ''
+            },
             alert: false,
             message: '',
             severity: '',
@@ -89,6 +102,75 @@ class DefaultDriverAdd extends Component {
     render() {
         const {classes} = this.props;
 
+
+        const saveImage = async values => {
+
+            console.log('saveImg')
+            this.setState({
+                formData3: {
+                    id: this.state.formData.id,
+                    name: this.state.formData.name,
+                    address: this.state.formData.address,
+                    age: this.state.formData.age,
+                    contact: this.state.formData.contact,
+                    nic: this.state.formData.nic,
+                    password: this.state.formData2.password,
+                    type: 'Driver'
+                }
+            })
+
+            const formData = new FormData();
+            formData.append(
+                "myFile",
+                this.state.file,
+                this.state.file.name
+            );
+
+            let res = await PostService.createPostUserImage(formData);
+
+            if (res.status === 201) {
+                saveLoginUser()
+
+            } else {
+                this.setState({
+                    alert: true,
+                    message: 'Post created Unsuccesfully!',
+                    severity: 'error'
+                })
+
+                saveLoginUser()
+            }
+        }
+
+        const saveLoginUser = async values => {
+
+            console.log(this.state.formData3)
+            let response = await PostService.createPostUser(this.state.formData3);
+            if (response.status === 201) {
+
+                this.setState({
+                    alert: true,
+                    message: 'Post created succesfully!',
+                    severity: 'success'
+                })
+
+                setTimeout(() => {
+                    message.success('Register Success!!')
+                }, 2000);
+
+            } else {
+                this.setState({
+                    alert: true,
+                    message: 'Post created Unsuccesfully!',
+                    severity: 'error'
+                })
+
+                setTimeout(() => {
+                    message.error('Register Failed!!')
+                }, 2000);
+            }
+        }
+
         const saveUser = async values => {
 
             let response = await PostService.createPostDriver(this.state.formData);
@@ -102,6 +184,9 @@ class DefaultDriverAdd extends Component {
                 setTimeout(() => {
                     message.success('Adding Driver Success!!')
                 }, 2000);
+
+                saveImage();
+
             } else {
                 this.setState({
                     alert: true,
@@ -112,11 +197,15 @@ class DefaultDriverAdd extends Component {
                 setTimeout(() => {
                     message.error('Adding Car Unsuccessful!!')
                 }, 2000);
+
+                saveImage();
             }
         }
 
         const onFinish = async values => {
             this.state.formData.id = this.state.newId
+
+            console.log(this.state.formData)
 
             const formData = new FormData();
 
@@ -231,6 +320,15 @@ class DefaultDriverAdd extends Component {
                                            let formData = this.state.formData
                                            formData.vehicleRegisterNo = e.target.value
                                            this.setState({formData})
+                                       }}/>
+                            </Form.Item>
+
+                            <Form.Item name={"password"} label={"Password"} rules={[{required: true}]}>
+                                <Input value={this.state.formData2.password} type={"password"}
+                                       onChange={(e) => {
+                                           let formData2 = this.state.formData2
+                                           formData2.password = e.target.value
+                                           this.setState({formData2})
                                        }}/>
                             </Form.Item>
 

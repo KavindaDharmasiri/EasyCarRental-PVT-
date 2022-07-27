@@ -44,7 +44,7 @@ public class UserController {
 
 
 
-        UserDTO userDTO = new UserDTO(user.getId(),user.getName(),user.getAddress(),user.getAge(),temp,user.getContact(),user.getPassword(),user.getType());
+        UserDTO userDTO = new UserDTO(user.getId(),user.getName(),user.getEmail(),user.getAddress(),user.getAge(),temp,user.getContact(),user.getPassword(),user.getType());
         temp = "";
         userService.saveUser(userDTO);
 
